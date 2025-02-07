@@ -1,5 +1,5 @@
 <?php
-// Exemple de code PHP pour gérer la logique de la page
+
 $pageTitle = "Page centrale"; // Titre de la page
 ?>
 <!DOCTYPE html>
