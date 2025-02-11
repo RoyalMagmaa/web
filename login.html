@@ -2,32 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>offres</title>
+    <title>Stageo</title>
     <link href="style.css" rel="stylesheet">
-    <link href="fonts/fontawesome 6.3/css/solid.css" rel="stylesheet">
-    <link href="fonts/fontawesome 6.3/css/regular.css" rel="stylesheet">
-    <script defer src="/script/jquery/jquery-3.7.1.js"></script>
-    <script defer src="script/components.js"></script>
-    <script defer src="script/input-validation.js"></script>
-    <!-- PWA -->
-    <link rel="manifest" href="manifest.json" />
-    <link rel="apple-touch-icon" href="/img/Square44x44Logo.altform-unplated_targetsize-96.png">
-    <meta name="thewme-color" content="#FFFFFF">
-    <!-- /PWA -->
 </head>
 <body>
-<div class="auth-container flex-column flex-align-content-center-ca">
-    <div class="auth flex-align-content-center-ca">
-        <div class="offer-text">
-            <img src="img/logo.png" alt="Logo" class="login-logo">
-            <h1>Offres de stage</h1>
-            <h2>Authentificate to gain access to the platform</h2>
+<div class="conteneur-auth flex-colonne centre-alignement">
+    <div class="auth centre-alignement">
+        <div class="texte-offre">
+            <img src="img/logo.png" alt="Logo" class="logo-login">
+            <h1>Connexion</h1>
+            <h2>Authentifiez-vous pour accéder à la plateforme</h2>
         </div>
-        <div class="auth-input">
-            <form id="login-form" method="post">
-                <input class="input-email" id="login-email" placeholder="Email" required type="text">
-                <input id="login-password" placeholder="Password" required type="password">
-                <button onclick="checkForm()" type="button">Login</button>
+        <div class="entree-auth">
+            <form id="formulaire-login" method="post">
+                <input class="email-entree" id="email-login" placeholder="Email" required type="text">
+                <input id="mdp-login" placeholder="Mot de passe" required type="password">
+                <button onclick="checkForm()" type="button">Connexion</button>
             </form>
         </div>
     </div>
