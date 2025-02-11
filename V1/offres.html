@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>offres</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="fonts/fontawesome 6.3/css/solid.css" rel="stylesheet">
+    <link href="fonts/fontawesome 6.3/css/regular.css" rel="stylesheet">
+    <script defer src="/script/jquery/jquery-3.7.1.js"></script>
+    <script defer src="script/components.js"></script>
+    <script defer src="script/input-validation.js"></script>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="/img/Square44x44Logo.altform-unplated_targetsize-96.png">
+    <meta name="thewme-color" content="#FFFFFF">
+    <!-- /PWA -->
+</head>
+<body>
+<div class="offre-main-section">
+    <div class="offre-sub-section">
+        <div class="img-fond">
+            
+        </div>
+        <div class="offer-text">
+            <h1>Offres de stage</h1>
+            <h2>Authentificate to gain access to the platform</h2>
+        </div>
+        <div class="auth-input">
+            <form id="login-form" method="post">
+                <input class="input-email" id="login-email" placeholder="Email" required type="text">
+                <input id="login-password" placeholder="Password" required type="password">
+                <button onclick="checkForm()" type="button">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
