@@ -43,21 +43,11 @@ Le projet est découpé en plusieurs phases :
 - **Sécurité** : Protection contre les injections SQL et stockage sécurisé des données sensibles.
 - **Responsive Design** : Adaptabilité aux écrans mobiles et tablettes.
 
-## 📊 Évaluation
-L'évaluation du projet se fera sur :
-- La qualité du code et respect des spécifications.
-- L'implémentation des fonctionnalités demandées.
-- La présentation et démonstration du projet.
-- L'organisation et la gestion du projet.
-
 ## 🎨 Outils et Ressources
 - **UI/UX Design** : Figma, JustInMind
 - **Développement** : Visual Studio Code, PHPStorm, GitHub
 - **Base de données** : MySQL, PostgreSQL
 - **Gestion de projet** : Trello, Notion
 
-## 🏆 Fin du Projet
-Ce projet se clôturera par une **soutenance finale** où chaque groupe présentera son travail et répondra aux questions du jury.
-
 ---
-✍️ **Réalisé avec passion** par l'équipe de développement 🚀
+✍️ **Réalisé avec passion** par une équipe de développement composé des très talentueux Martin CAPARROS, Elio FAIVRE, Antoine ROURE et Arthur ROUX !🚀
