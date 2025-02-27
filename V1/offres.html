@@ -16,23 +16,40 @@
     <!-- /PWA -->
 </head>
 <body>
-<div class="offre-main-section">
-    <div class="offre-sub-section">
-        <div class="img-fond">
-            
+    <header>
+        <nav>
+            <div class="navbar" id="reconnect">
+                <a href="login.html">Se reconnecter</a>
+            </div>
+            <div class="navbar">
+				<a href="offres.html">Les Offres</a>
+                <a href="entreprises.html">Les entreprises</a>
+			</div>
+            <div class="navbar" id="wishlist-button">
+                <a href="wishlist.html">Liste de souhaits</a>
+            </div>
+        </nav>
+    </header>
+    <div class="main-section">
+        <div class="header-section">
+            <h1 id="titre-offre">Choisissez le stage qui vous correspond</h1>
         </div>
-        <div class="offer-text">
-            <h1>Offres de stage</h1>
-            <h2>Authentificate to gain access to the platform</h2>
-        </div>
-        <div class="auth-input">
+        <div class="sub-section">
+            <div class="offer-text">
+                <h2>Offres de stages</h2>
+            </div>
             <form id="login-form" method="post">
-                <input class="input-email" id="login-email" placeholder="Email" required type="text">
-                <input id="login-password" placeholder="Password" required type="password">
-                <button onclick="checkForm()" type="button">Login</button>
+                <input id="input-recherche" placeholder="Rechercher une offre" required type="text">
+                <select name="ville" id="ville-select">
+                    <option value="">Toutes les villes</option>
+                </select>
             </form>
+            <div class="offre">
+                <h2>Titre de l'annonce</h2>
+                <p>Sur site</p>
+                <p>Nom de la ville, Région</p>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
