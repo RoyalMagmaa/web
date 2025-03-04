@@ -213,3 +213,12 @@ nav a:hover {
     padding-left: 1em;
     font-size: 1rem;
 }
+form {
+    margin-bottom: 20px; /* Ajoute un espace en dessous de chaque formulaire */
+}
+footer {
+    background-color: #18206F;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
