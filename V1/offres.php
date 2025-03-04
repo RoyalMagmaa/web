@@ -12,21 +12,21 @@
     <!-- PWA -->
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="/img/Square44x44Logo.altform-unplated_targetsize-96.png">
-    <meta name="thewme-color" content="#FFFFFF">
+    <meta name="theme-color" content="#FFFFFF">
     <!-- /PWA -->
 </head>
 <body>
     <header>
         <nav>
             <div class="navbar" id="reconnect">
-                <a href="login.html">Se reconnecter</a>
+                <a href="login.php">Se reconnecter</a>
             </div>
             <div class="navbar">
-				<a href="offres.html">Les Offres</a>
-                <a href="entreprises.html">Les entreprises</a>
-			</div>
+                <a href="offres.php">Les Offres</a>
+                <a href="entreprises.php">Les entreprises</a>
+            </div>
             <div class="navbar" id="wishlist-button">
-                <a href="wishlist.html">Liste de souhaits</a>
+                <a href="wishlist.php">Liste de souhaits</a>
             </div>
         </nav>
     </header>
@@ -44,12 +44,44 @@
                     <option value="">Toutes les villes</option>
                 </select>
             </form>
-            <div class="offre">
-                <h2>Titre de l'annonce</h2>
+            
+            <div class="offre" data-id="1">
+                <div class="wishlist-icon" onclick="toggleWishlist(this)">
+                    &#9825;
+                </div>
+                <h2>Stage Développeur Web</h2>
                 <p>Sur site</p>
-                <p>Nom de la ville, Région</p>
+                <p>Lyon, Auvergne-Rhône-Alpes</p>
+            </div>
+            
+            <div class="offre" data-id="2">
+                <div class="wishlist-icon" onclick="toggleWishlist(this)">
+                    &#9825;
+                </div>
+                <h2>Stage Administrateur Réseau</h2>
+                <p>Sur site</p>
+                <p>Paris, Île-de-France</p>
+            </div>
+            
+            <div class="offre" data-id="3">
+                <div class="wishlist-icon" onclick="toggleWishlist(this)">
+                    &#9825;
+                </div>
+                <h2>Stage Ingénieur Sécurité</h2>
+                <p>Sur site</p>
+                <p>Marseille, Provence-Alpes-Côte d'Azur</p>
             </div>
         </div>
     </div>
+    
+    <script>
+        function toggleWishlist(element) {
+            if (element.innerHTML === "\u2661") { // Cœur vide
+                element.innerHTML = "\u2764"; // Cœur plein
+            } else {
+                element.innerHTML = "\u2661";
+            }
+        }
+    </script>
 </body>
 </html>

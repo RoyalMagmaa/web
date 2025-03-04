@@ -9,7 +9,7 @@
 <div class="conteneur-auth flex-colonne centre-alignement">
     <div class="auth centre-alignement">
         <div class="texte-offre">
-            <img src="img/logo.png" alt="Logo" class="logo-login">
+            <img src="../public/assets/img/logo.png" alt="Logo" class="logo-login">
             <h1>Connexion</h1>
             <h2>Authentifiez-vous pour accéder à la plateforme</h2>
         </div>
