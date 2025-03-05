@@ -12,22 +12,23 @@
     <script defer src="script/input-validation.js"></script>
     <!-- PWA -->
     <link rel="manifest" href="manifest.json" />
-    <link rel="apple-touch-icon" href="/img/Square44x44Logo.altform-unplated_targetsize-96.png">
+    <link rel="apple-touch-icon" href="/web/public/assets/img/logo.png">
     <meta name="thewme-color" content="#FFFFFF">
     <!-- /PWA -->
 </head>
 <body>
     <header>
         <nav>
-            <div class="navbar" id="reconnect">
-                <a href="login.html">Se reconnecter</a>
+            <div class="navbar" id="logo">
+                <img src="/web/public/assets/img/logo.png">
+                <p>Stageo</p>
             </div>
             <div class="navbar">
 				<a href="offres.html">Offres</a>
-                <a href="entreprises.html">entreprises</a>
+                <a href="entreprises.html">Entreprises</a>
 			</div>
-            <div class="navbar" id="wishlist-button">
-                <a href="wishlist.html">Liste de souhaits</a>
+            <div class="navbar" id="profil-menu">
+                <img src="/web/public/assets/img/utilisateur.png">
             </div>
         </nav>
     </header>
@@ -45,6 +46,7 @@
                     <option value="">Toutes les villes</option>
                 </select>
             </form>
+            <?php include 'list.php'; ?>
             <div class="offre">
                 <h2>Titre de l'annonce</h2>
                 <p>Sur site</p>
@@ -52,5 +54,10 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="footer">
+            <p>© 2025 - Tous droits réservés</p>
+        </div>
+    </footer>
 </body>
 </html>
