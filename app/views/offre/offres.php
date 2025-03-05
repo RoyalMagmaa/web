@@ -47,11 +47,6 @@
                 </select>
             </form>
             <?php include 'list.php'; ?>
-            <div class="offre">
-                <h2>Titre de l'annonce</h2>
-                <p>Sur site</p>
-                <p>Nom de la ville, Région</p>
-            </div>
         </div>
     </div>
     <footer>

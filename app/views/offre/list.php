@@ -1,56 +1,52 @@
 <?php
-$entreprises = [
-    ["nom" => "Apple", "secteur" => "Technologie", "ville" => "Cupertino"],
-    ["nom" => "Google", "secteur" => "Technologie", "ville" => "Mountain View"],
-    ["nom" => "Microsoft", "secteur" => "Technologie", "ville" => "Redmond"],
-    ["nom" => "Tesla", "secteur" => "Automobile", "ville" => "Palo Alto"],
-    ["nom" => "Amazon", "secteur" => "Commerce électronique", "ville" => "Seattle"],
-    ["nom" => "Facebook", "secteur" => "Réseaux sociaux", "ville" => "Menlo Park"],
-    ["nom" => "Airbus", "secteur" => "Aéronautique", "ville" => "Toulouse"],
-    ["nom" => "Orange", "secteur" => "Télécommunications", "ville" => "Paris"],
-    ["nom" => "Société Générale", "secteur" => "Banque", "ville" => "Paris"],
-    ["nom" => "L'Oréal", "secteur" => "Cosmétique", "ville" => "Clichy"],
-    ["nom" => "Danone", "secteur" => "Agroalimentaire", "ville" => "Paris"],
-    ["nom" => "Volkswagen", "secteur" => "Automobile", "ville" => "Wolfsburg"],
-    ["nom" => "BMW", "secteur" => "Automobile", "ville" => "Munich"],
-    ["nom" => "Siemens", "secteur" => "Technologie", "ville" => "Munich"],
-    ["nom" => "Nokia", "secteur" => "Télécommunications", "ville" => "Espoo"],
-    ["nom" => "Sony", "secteur" => "Électronique", "ville" => "Tokyo"],
-    ["nom" => "Samsung", "secteur" => "Électronique", "ville" => "Séoul"],
-    ["nom" => "Ubisoft", "secteur" => "Jeux vidéo", "ville" => "Montreuil"],
-    ["nom" => "Capgemini", "secteur" => "Consulting", "ville" => "Paris"],
-    ["nom" => "Accenture", "secteur" => "Consulting", "ville" => "Dublin"],
-    ["nom" => "Hewlett-Packard", "secteur" => "Technologie", "ville" => "Palo Alto"],
-    ["nom" => "Twitter", "secteur" => "Réseaux sociaux", "ville" => "San Francisco"],
-    ["nom" => "Spotify", "secteur" => "Média", "ville" => "Stockholm"],
-    ["nom" => "Netflix", "secteur" => "Média", "ville" => "Los Gatos"],
-    ["nom" => "Pinterest", "secteur" => "Réseaux sociaux", "ville" => "San Francisco"],
-    ["nom" => "Slack", "secteur" => "Technologie", "ville" => "San Francisco"],
-    ["nom" => "Intel", "secteur" => "Technologie", "ville" => "Santa Clara"],
-    ["nom" => "AMD", "secteur" => "Technologie", "ville" => "Santa Clara"],
-    ["nom" => "Spotify", "secteur" => "Média", "ville" => "Stockholm"],
-    ["nom" => "LVMH", "secteur" => "Luxe", "ville" => "Paris"],
-    ["nom" => "Kering", "secteur" => "Luxe", "ville" => "Paris"],
-    ["nom" => "Louis Vuitton", "secteur" => "Luxe", "ville" => "Paris"],
-    ["nom" => "TotalEnergies", "secteur" => "Énergie", "ville" => "Paris"],
-    ["nom" => "EDF", "secteur" => "Énergie", "ville" => "Paris"],
-    ["nom" => "Schneider Electric", "secteur" => "Énergie", "ville" => "Rueil-Malmaison"],
-    ["nom" => "Accor", "secteur" => "Hôtellerie", "ville" => "Paris"],
-    ["nom" => "Air France", "secteur" => "Aérien", "ville" => "Roissy-en-France"],
-    ["nom" => "Leclerc", "secteur" => "Distribution", "ville" => "Landerneau"],
-    ["nom" => "Carrefour", "secteur" => "Distribution", "ville" => "Massy"],
-    ["nom" => "Decathlon", "secteur" => "Distribution", "ville" => "Villeneuve-d\"Ascq"],
-    ["nom" => "Météo France", "secteur" => "Services", "ville" => "Paris"],
-    ["nom" => "Orange", "secteur" => "Télécommunications", "ville" => "Paris"],
-    ["nom" => "Bouygues", "secteur" => "Construction", "ville" => "Paris"],
-    ["nom" => "La Poste", "secteur" => "Services", "ville" => "Paris"],
-    ["nom" => "SNCF", "secteur" => "Transport", "ville" => "Paris"],
-    ["nom" => "Vinci", "secteur" => "Construction", "ville" => "Rueil-Malmaison"],
-    ["nom" => "Groupe Renault", "secteur" => "Automobile", "ville" => "Boulogne-Billancourt"],
-    ["nom" => "Stellantis", "secteur" => "Automobile", "ville" => "Poissy"],
-    ["nom" => "Dassault Systèmes", "secteur" => "Technologie", "ville" => "Vélizy-Villacoublay"],
-    ["nom" => "Atos", "secteur" => "Technologie", "ville" => "Bezons"],
-    ["nom" => "Alstom", "secteur" => "Transport", "ville" => "Saint-Ouen"]
+$offres = [
+    ["titre" => "Stage Développeur Web", "entreprise" => "Tech Solutions", "ville" => "Paris"],
+    ["titre" => "Stage Data Analyst", "entreprise" => "DataCorp", "ville" => "Lyon"],
+    ["titre" => "Stage Ingénieur Réseau", "entreprise" => "NetSecure", "ville" => "Marseille"],
+    ["titre" => "Stage Marketing Digital", "entreprise" => "WebCom", "ville" => "Toulouse"],
+    ["titre" => "Stage Graphiste UI/UX", "entreprise" => "CreativeDesign", "ville" => "Bordeaux"],
+    ["titre" => "Stage Consultant Cybersécurité", "entreprise" => "CyberDef", "ville" => "Lille"],
+    ["titre" => "Stage Développeur Mobile", "entreprise" => "App Innov", "ville" => "Nantes"],
+    ["titre" => "Stage Chef de Projet IT", "entreprise" => "IT Consulting", "ville" => "Strasbourg"],
+    ["titre" => "Stage Community Manager", "entreprise" => "SocialBoost", "ville" => "Nice"],
+    ["titre" => "Stage Administrateur Systèmes", "entreprise" => "CloudTech", "ville" => "Rennes"],
+    ["titre" => "Stage Développeur Full Stack", "entreprise" => "Code Factory", "ville" => "Paris"],
+    ["titre" => "Stage Ingénieur DevOps", "entreprise" => "DevOps Solutions", "ville" => "Lyon"],
+    ["titre" => "Stage Analyste Sécurité", "entreprise" => "CyberShield", "ville" => "Marseille"],
+    ["titre" => "Stage Rédacteur Web", "entreprise" => "ContentKing", "ville" => "Toulouse"],
+    ["titre" => "Stage Ingénieur IA", "entreprise" => "AI Lab", "ville" => "Bordeaux"],
+    ["titre" => "Stage Administrateur Réseaux", "entreprise" => "SecureNet", "ville" => "Lille"],
+    ["titre" => "Stage Chargé de Communication", "entreprise" => "MediaPro", "ville" => "Nantes"],
+    ["titre" => "Stage Webdesigner", "entreprise" => "Creative Pixels", "ville" => "Strasbourg"],
+    ["titre" => "Stage Développeur Backend", "entreprise" => "Backend Factory", "ville" => "Nice"],
+    ["titre" => "Stage Consultant SEO", "entreprise" => "SEO Masters", "ville" => "Rennes"],
+    ["titre" => "Stage Data Scientist", "entreprise" => "Big Data Analytics", "ville" => "Paris"],
+    ["titre" => "Stage Ingénieur Logiciel", "entreprise" => "SoftTech", "ville" => "Lyon"],
+    ["titre" => "Stage Chef de Produit Digital", "entreprise" => "Digital Mark", "ville" => "Marseille"],
+    ["titre" => "Stage Analyste Financier", "entreprise" => "FinTech Consulting", "ville" => "Toulouse"],
+    ["titre" => "Stage Développeur Python", "entreprise" => "Code Python", "ville" => "Bordeaux"],
+    ["titre" => "Stage Administrateur Cloud", "entreprise" => "Cloud Masters", "ville" => "Lille"],
+    ["titre" => "Stage Growth Hacker", "entreprise" => "Growth Agency", "ville" => "Nantes"],
+    ["titre" => "Stage Ingénieur Robotique", "entreprise" => "Robotics Lab", "ville" => "Strasbourg"],
+    ["titre" => "Stage Rédacteur SEO", "entreprise" => "SEO Writers", "ville" => "Nice"],
+    ["titre" => "Stage Développeur Frontend", "entreprise" => "Web Dev", "ville" => "Rennes"],
+    ["titre" => "Stage Administrateur Bases de Données", "entreprise" => "DB Solutions", "ville" => "Paris"],
+    ["titre" => "Stage Business Developer", "entreprise" => "Biz Dev", "ville" => "Lyon"],
+    ["titre" => "Stage Expert Référencement", "entreprise" => "SEO Experts", "ville" => "Marseille"],
+    ["titre" => "Stage Consultant Cloud", "entreprise" => "Cloud Consulting", "ville" => "Toulouse"],
+    ["titre" => "Stage Web Analyst", "entreprise" => "Web Metrics", "ville" => "Bordeaux"],
+    ["titre" => "Stage UX Designer", "entreprise" => "UX Agency", "ville" => "Lille"],
+    ["titre" => "Stage Consultant IT", "entreprise" => "IT Experts", "ville" => "Nantes"],
+    ["titre" => "Stage Spécialiste IA", "entreprise" => "AI Research", "ville" => "Strasbourg"],
+    ["titre" => "Stage Gestionnaire de Projet", "entreprise" => "ProjectPro", "ville" => "Nice"],
+    ["titre" => "Stage Data Engineer", "entreprise" => "Big Data Solutions", "ville" => "Rennes"],
+    ["titre" => "Stage Développeur C++", "entreprise" => "Code C++", "ville" => "Paris"],
+    ["titre" => "Stage Rédacteur Technique", "entreprise" => "Tech Writers", "ville" => "Lyon"],
+    ["titre" => "Stage Chargé de Marketing", "entreprise" => "MarketPro", "ville" => "Marseille"],
+    ["titre" => "Stage Administrateur Linux", "entreprise" => "Linux Systems", "ville" => "Toulouse"],
+    ["titre" => "Stage Développeur JavaScript", "entreprise" => "JS Masters", "ville" => "Bordeaux"],
+    ["titre" => "Stage Consultant Digital", "entreprise" => "Digital Consulting", "ville" => "Lille"],
+    ["titre" => "Stage Analyste Web", "entreprise" => "WebAnalytics", "ville" => "Nantes"]
 ];
 
 // Nombre d'éléments par page
@@ -66,11 +62,18 @@ if ($page < 1) {
 
 // Découper le tableau avec array_slice
 $start = ($page - 1) * $perPage; // Calcul de l'index de départ
-$paginatedEntreprises = array_slice($entreprises, $start, $perPage); // Découpe du tableau
+$paginatedOffre = array_slice($offres, $start, $perPage); // Découpe du tableau
 
 // Affichage des entreprises pour la page actuelle
-foreach ($paginatedEntreprises as $entreprise) {
-    echo "<p>Nom : " . htmlspecialchars($entreprise['nom']) . "<br> Secteur : " . htmlspecialchars($entreprise['secteur']) . "<br> Ville : " . htmlspecialchars($entreprise['ville']) . "</p>";
+foreach ($paginatedOffre as $offre) {
+    echo '<div class="offre">';
+    echo '<div>';
+    echo '<h3>' . htmlspecialchars($offre['titre']) . '</h3>';
+    echo '<p><strong>' . htmlspecialchars($offre['entreprise']) . '</strong></p>';
+    echo '<p>' . htmlspecialchars($offre['ville']) . '</p>';
+    echo '</div>';
+    echo '<a href="detailOffre.php"> Consulter </a>';
+    echo '</div>';
 }
 
 ?>
