@@ -1,244 +1,311 @@
 .logo-login {
-    width: 100px; /* Ajustez la largeur selon vos besoins */
-    height: auto; /* Maintient les proportions de l'image */
+  width: 100px; /* Ajustez la largeur selon vos besoins */
+  height: auto; /* Maintient les proportions de l'image */
 }
 .offre {
-    position: relative;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 10px 0;
-    border-radius: 5px;
-    background: #fff;
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  border-radius: 5px;
+  background: #fff;
 }
 .wishlist-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    color: red;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: red;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 .wishlist-icon:hover {
-    transform: scale(1.2);
-    color: darkred;
+  transform: scale(1.2);
+  color: darkred;
 }
 body {
-    line-height: 1;
-    width: 100vw;
-    font-family: Inter, sans-serif;
-    margin: 0;
+  line-height: 1;
+  width: 100vw;
+  font-family: Inter, sans-serif;
+  margin: 0;
 }
 
-ol, ul {
-    list-style: none;
+ol,
+ul {
+  list-style: none;
 }
 
-blockquote, q {
-    quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 * {
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 /* Classes Flex */
 .flex-colonne {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .centre-alignement {
-    align-content: center;
+  align-content: center;
 }
 
 /* Styles de connexion et de création de compte */
 .conteneur-auth {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .auth {
-    margin: auto;
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
+  margin: auto;
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
 }
 
 .auth > * {
-    flex: 1;
-    flex-basis: 18rem;
-    max-width: 26rem;
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    justify-content: center;
+  flex: 1;
+  flex-basis: 18rem;
+  max-width: 26rem;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center;
 }
 
 .texte-offre h1 {
-    font-weight: bold;
-    font-size: clamp(2rem, 5vw, 3.45rem);
-    padding-bottom: 15px;
+  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 3.45rem);
+  padding-bottom: 15px;
 }
 
 .texte-offre h2 {
-    font-size: clamp(1rem, 2.8vw, 1.5rem);
-    color: #4F4F4F;
-    padding-bottom: 15px;
+  font-size: clamp(1rem, 2.8vw, 1.5rem);
+  color: #4f4f4f;
+  padding-bottom: 15px;
 }
 
 .entree-auth form {
-    display: flex;
-    gap: 0.8rem;
-    flex-direction: column;
-    max-width: 20rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: column;
+  max-width: 20rem;
 }
 
-.entree-auth input[type="text"], .entree-auth input[type="password"], .entree-auth button {
-    min-height: 1rem;
-    background-color: white;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 3rem;
-    border-radius: 9px;
-    border-style: solid;
-    padding: 0 5% 0 5%;
+.entree-auth input[type="text"],
+.entree-auth input[type="password"],
+.entree-auth button {
+  min-height: 1rem;
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 9px;
+  border-style: solid;
+  padding: 0 5% 0 5%;
 }
 
-.entree-auth input[type=text], .entree-auth input[type=password] {
-    font-size: clamp(0.8rem, 5vw, 1rem);
-    color: #777777;
-    border-width: 2px;
+.entree-auth input[type="text"],
+.entree-auth input[type="password"] {
+  font-size: clamp(0.8rem, 5vw, 1rem);
+  color: #777777;
+  border-width: 2px;
 }
 
 .entree-auth button {
-    margin-top: 0.9rem;
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    font-size: 1.56rem;
+  margin-top: 0.9rem;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 1.56rem;
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
+nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-
 nav a {
-    color: #17255A;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 20px;
-    transition: background 0.3s, color 0.3s;
+  color: #181842;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background 0.3s, color 0.3s;
 }
 
 nav a:hover {
-    background: #17255A;
-    color: #f4f4f4;
+  background: #17255a;
+  color: #f4f4f4;
 }
 
 #reconnect a {
-    color:black;
-    background-color: #D3D3D3;
+  color: black;
+  background-color: #d3d3d3;
 }
 
-#reconnect a:hover{
-    background: black;
-    color: white;
+#reconnect a:hover {
+  background: black;
+  color: white;
 }
 
 #wishlist-button a {
-    color:white;
-    background-color: #18206F;
+  color: white;
+  background-color: #181842;
 }
 
-#wishlist-button a:hover{
-    background: black;
-    color: white;
+#wishlist-button a:hover {
+  background: black;
+  color: white;
 }
 
-.main-section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.main-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.header-section{
-    background-color: #777777;
-    background-image: url(backgroundOffre.png);
-    background-size: cover;
-    width: 100%;
-    padding-top: 10%;
-    padding-bottom: 10%;
+.header-section {
+  background-color: #777777;
+  background-image: url(backgroundOffre.png);
+  background-size: cover;
+  width: 100%;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
-.sub-section{
-    width: 80%;
-    background-color: white;
-    font-size: 1.3rem;
-}
-
-#login-form{
-    margin-bottom: 2em;
-}
-#input-recherche{
-    width: 15em;
-    height: 3em;
-    border-radius:5px;
-    padding-left: 1em;
-    font-size: 1rem;
+.sub-section {
+  width: 80%;
+  background-color: white;
+  font-size: 1.3rem;
 }
 
-#ville-select{
-    width: 12em;
-    height: 3em;
-    border-radius:5px;
-    padding-left: 1em;
-    font-size: 1rem;
+#login-form {
+  margin-bottom: 2em;
+}
+#input-recherche {
+  width: 15em;
+  height: 3em;
+  border-radius: 5px;
+  padding-left: 1em;
+  font-size: 1rem;
 }
 
-#titre-offre{
-    color: white;
-    margin-left: 5rem;
+#ville-select {
+  width: 12em;
+  height: 3em;
+  border-radius: 5px;
+  padding-left: 1em;
+  font-size: 1rem;
 }
-.offre{
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 50%;
-    padding-left: 1em;
-    font-size: 1rem;
+
+#titre-offre {
+  color: white;
+  margin-left: 5rem;
+}
+.offre {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 50%;
+  padding-left: 1em;
+  font-size: 1rem;
 }
 form {
-    margin-bottom: 20px; /* Ajoute un espace en dessous de chaque formulaire */
+  margin-bottom: 20px; /* Ajoute un espace en dessous de chaque formulaire */
 }
 footer {
-    background-color: #18206F;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+  background-color: #181842;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+.container {
+  display: flex; /* Met en ligne les sections */
+  justify-content: space-between; /* Espace les deux blocs */
+  align-items: flex-start; /* Aligne en haut */
+  gap: 20px; /* Espacement entre les deux blocs */
+  width: 100%;
+  max-width: 1200px; /* Empêche le contenu d'être trop large */
+  margin: 0 auto; /* Centre le contenu */
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.offers-section {
+  flex: 2; /* Donne plus de place aux offres */
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #181842;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3); /* Ombre bleutée */
+}
+
+.forms-section {
+  flex: 1; /* Moins d'espace pour les formulaires */
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #181842;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3); /* Ombre bleutée */
+}
+
+/* Pour éviter que les formulaires soient trop larges */
+.forms-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.offre {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.boutonelio[type="submit"] {
+  background-color: #181842;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+.boutonelio[type="submit"]:hover {
+  background: #2a38b3;
+  color: white;
+  transform: scale(1.05);
 }
