@@ -117,3 +117,15 @@ header img {
 .offre a:hover{
     background-color: #0959ee;
 }
+
+.pagination{
+    margin:2rem;
+}
+
+.pagination a{
+    margin-right: 0.5rem;
+    padding: 1rem;
+    background-color: #17255A;
+    color: white;
+    border-radius: 0.3rem;
+}

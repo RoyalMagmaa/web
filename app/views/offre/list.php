@@ -49,15 +49,22 @@ $offres = [
     ["titre" => "Stage Analyste Web", "entreprise" => "WebAnalytics", "ville" => "Nantes"]
 ];
 
-// Nombre d'éléments par page
 $perPage = 10;
 
+// Nombre total d'entreprises
+$totalOffres = count($offres);
+
+// Nombre total de pages
+$totalPages = ceil($totalOffres / $perPage);
+
 // Récupérer la page actuelle à partir de la variable GET 'page'
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Par défaut, page 1
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
 // Sécuriser la page en la validant
 if ($page < 1) {
-    $page = 1; // Si la page est invalide, on affiche la page 1
+    $page = 1;
+} elseif ($page > $totalPages) {
+    $page = $totalPages;
 }
 
 // Découper le tableau avec array_slice
@@ -65,7 +72,7 @@ $start = ($page - 1) * $perPage; // Calcul de l'index de départ
 $paginatedOffre = array_slice($offres, $start, $perPage); // Découpe du tableau
 
 // Affichage des entreprises pour la page actuelle
-foreach ($paginatedOffre as $offre) {
+foreach ($paginatedOffre as $index => $offre) {
     echo '<div class="offre">';
     echo '<div>';
     echo '<h3>' . htmlspecialchars($offre['titre']) . '</h3>';
@@ -75,5 +82,15 @@ foreach ($paginatedOffre as $offre) {
     echo '<a href="detailOffre.php"> Consulter </a>';
     echo '</div>';
 }
+
+// Affichage des boutons de navigation
+echo '<div class="pagination">';
+if ($page > 1) {
+    echo '<a href="?page=' . ($page - 1) . '" class="btn">Précédent</a>';
+}
+if ($page < $totalPages) {
+    echo '<a href="?page=' . ($page + 1) . '" class="btn">Suivant</a>';
+}
+echo '</div>';
 
 ?>
