@@ -1,4 +1,11 @@
-nav{
+header {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    width: 75%;
+    height: 4rem;
     display:flex;
     justify-content:space-between;
 }
@@ -10,13 +17,13 @@ nav{
     position: relative;
 }
 
-
 nav a {
     color: #17255A;
     text-decoration: none;
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 0.9rem;
     transition: background 0.3s, color 0.3s;
+    border-radius: 2rem;
 }
 
 nav a:hover {
@@ -24,24 +31,25 @@ nav a:hover {
     color: #f4f4f4;
 }
 
-#reconnect a {
-    color:black;
-    background-color: #D3D3D3;
+header img {
+    width: 90%;  /* Le logo prend toute la largeur du header */
+    height: 90%; /* Le logo prend toute la hauteur */
+    object-fit: contain; /* Garde les proportions sans déformation */
 }
 
-#reconnect a:hover{
-    background: black;
-    color: white;
+#profil-menu img {
+    width: 80%;
+    height: 80%;
 }
 
-#wishlist-button a {
-    color:white;
-    background-color: #18206F;
+#logo p {
+    color: #17255A; 
+    padding-left: 1rem;
+    font-size: x-large;
 }
 
-#wishlist-button a:hover{
-    background: black;
-    color: white;
+#profil-menu{
+    padding-right: 2rem;
 }
 
 .main-section{
@@ -51,7 +59,7 @@ nav a:hover {
 }
 .header-section{
     background-color: #777777;
-    background-image: url(backgroundOffre.png);
+    background-image: url(/web/public/assets/img/backgroundOffre.png);
     background-size: cover;
     width: 100%;
     padding-top: 10%;
@@ -84,7 +92,7 @@ nav a:hover {
 
 #titre-offre{
     color: white;
-    margin-left: 5rem;
+    margin-left: 8rem;
 }
 .offre{
     border: 2px solid black;
@@ -92,4 +100,32 @@ nav a:hover {
     width: 50%;
     padding-left: 1em;
     font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.offre a{
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #17255A;
+    color: white;
+    height: 3rem;
+    border-radius: 0.3rem;
+}
+
+.offre a:hover{
+    background-color: #0959ee;
+}
+
+.pagination{
+    margin:2rem;
+}
+
+.pagination a{
+    margin-right: 0.5rem;
+    padding: 1rem;
+    background-color: #17255A;
+    color: white;
+    border-radius: 0.3rem;
 }

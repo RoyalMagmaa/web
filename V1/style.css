@@ -1,27 +1,27 @@
 .logo-login {
-    width: 100px; /* Ajustez la largeur selon vos besoins */
-    height: auto; /* Maintient les proportions de l'image */
+  width: 100px; /* Ajustez la largeur selon vos besoins */
+  height: auto; /* Maintient les proportions de l'image */
 }
 .offre {
-    position: relative;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 10px 0;
-    border-radius: 5px;
-    background: #fff;
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  border-radius: 5px;
+  background: #fff;
 }
 .wishlist-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    color: red;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: red;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 .wishlist-icon:hover {
-    transform: scale(1.2);
-    color: darkred;
+  transform: scale(1.2);
+  color: darkred;
 }
 body {
     line-height: 1;
@@ -33,40 +33,44 @@ body {
     min-height: 100vh;
 }
 
-ol, ul {
-    list-style: none;
+ol,
+ul {
+  list-style: none;
 }
 
-blockquote, q {
-    quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 * {
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 /* Classes Flex */
 .flex-colonne {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .centre-alignement {
-    align-content: center;
+  align-content: center;
 }
 
 /* Navigation */
@@ -78,23 +82,23 @@ nav {
 }
 
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 nav a {
-    color: #17255A;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 20px;
-    transition: background 0.3s, color 0.3s;
+  color: #181842;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: background 0.3s, color 0.3s;
 }
 
 nav a:hover {
-    background: #17255A;
-    color: #f4f4f4;
+  background: #17255a;
+  color: #f4f4f4;
 }
 
 #reconnect a {
@@ -396,13 +400,74 @@ nav a:hover {
     font-size: 1rem;
 }
 form {
-    margin-bottom: 20px; /* Ajoute un espace en dessous de chaque formulaire */
+  margin-bottom: 20px; /* Ajoute un espace en dessous de chaque formulaire */
 }
 footer {
-    background-color: #18206F;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+  background-color: #181842;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+.container {
+  display: flex; /* Met en ligne les sections */
+  justify-content: space-between; /* Espace les deux blocs */
+  align-items: flex-start; /* Aligne en haut */
+  gap: 20px; /* Espacement entre les deux blocs */
+  width: 100%;
+  max-width: 1200px; /* Empêche le contenu d'être trop large */
+  margin: 0 auto; /* Centre le contenu */
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.offers-section {
+  flex: 2; /* Donne plus de place aux offres */
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #181842;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3); /* Ombre bleutée */
+}
+
+.forms-section {
+  flex: 1; /* Moins d'espace pour les formulaires */
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #181842;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3); /* Ombre bleutée */
+}
+
+/* Pour éviter que les formulaires soient trop larges */
+.forms-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.offre {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.boutonelio[type="submit"] {
+  background-color: #181842;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+.boutonelio[type="submit"]:hover {
+  background: #2a38b3;
+  color: white;
+  transform: scale(1.05);
 }
 
 

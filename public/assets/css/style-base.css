@@ -40,3 +40,10 @@ table {
 .centre-alignement {
     align-content: center;
 }
+
+footer {
+    background-color: #18206F;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
