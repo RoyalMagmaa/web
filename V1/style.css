@@ -1,3 +1,28 @@
+.logo-login {
+    width: 100px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Maintient les proportions de l'image */
+}
+.offre {
+    position: relative;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    border-radius: 5px;
+    background: #fff;
+}
+.wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: red;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.wishlist-icon:hover {
+    transform: scale(1.2);
+    color: darkred;
+}
 body {
     line-height: 1;
     width: 100vw;
@@ -370,6 +395,16 @@ nav a:hover {
     border-radius: 4px;
     font-size: 1rem;
 }
+form {
+    margin-bottom: 20px; /* Ajoute un espace en dessous de chaque formulaire */
+}
+footer {
+    background-color: #18206F;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
 
 .form-select {
     width: 100%;
