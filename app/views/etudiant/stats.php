@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistiques étudiant</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="/web/public/assets/css/style-etudiant.css" rel="stylesheet">
+    <link href="/web/public/assets/css/style-base.css" rel="stylesheet">
 </head>
 <body>
     <header>

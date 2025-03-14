@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Wishlist</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="/web/public/assets/css/style-etudiant.css" rel="stylesheet">
+    <link href="/web/public/assets/css/style-base.css" rel="stylesheet">
     <script defer src="/script/jquery/jquery-3.7.1.js"></script>
     <script defer src="script/components.js"></script>
     <script defer src="script/input-validation.js"></script>
