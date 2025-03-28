@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <title>@yield('titre')</title>
     @vite('resources/css/style-base.css')
-    @vite('resources/css/style-offres.css')
+    @yield('styles') {{-- Styles spécifiques à chaque page --}}
     <meta name="theme-color" content="#18206F">
 </head>
 <body>
     <header>
-        @include('layouts.navbar')
+        @include('layouts.header')
     </header>
 
     <main>
@@ -17,9 +17,7 @@
     </main>
 
     <footer>
-        <div class="footer">
-            <p>© 2025 - Tous droits réservés</p>
-        </div>
+        @include('layouts.footer')
     </footer>
 </body>
 </html>

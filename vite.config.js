@@ -10,4 +10,5 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    assetsInclude: ['**/*.php'], // Ajoutez cette ligne pour inclure les fichiers PHP comme assets
 });

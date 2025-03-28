@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Stageo</title>
-    @vite('resources/css/style-base.css')
+
+@extends('layouts.app')
+
+@section('titre','Gestion Entreprises')
+
+@section('styles') 
     @vite('resources/css/style-login.css')
-</head>
-<body>
+@endsection
+
+@section('main')
 <div class="conteneur-auth flex-colonne centre-alignement">
     <div class="auth centre-alignement">
         <div class="texte-offre">
@@ -29,5 +30,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+@endsection

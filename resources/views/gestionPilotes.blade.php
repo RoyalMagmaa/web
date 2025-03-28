@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <title>GestionPilote</title>
+@section('titre','Gestion  Pilote')
+
+@section('styles') 
     @vite('resources/css/style-gestionPilotes.css')
-    @vite('resources/css/style-base.css')
-    <meta name="theme-color" content="#FFFFFF">
-    <!-- /PWA -->
-</head>
+@endsection
 
-<body>
-    <header>
-        <nav>
-            <div class="navbar" id="reconnect">
-                <a href="login.html">Se reconnecter</a>
-            </div>
-            <div class="navbar">
-                <a href="offres.html">Les Offres</a>
-                <a href="entreprises.html">Les entreprises</a>
-            </div>
-            <div class="navbar" id="wishlist-button">
-                <a href="wishlist.html">Liste de souhaits</a>
-            </div>
-        </nav>
-    </header>
+@section('main')
     <div class="main-section">
         <div class="header-section">
             <h1 id="titre-offre">Gestion des Pilotes</h1>
@@ -64,14 +46,4 @@
                 </form>
             </div>
         </div>
-
-    </div>
-    </div>
-    <footer>
-        <div class="footer">
-            <p>© 2025 - Tous droits réservés</p>
-        </div>
-    </footer>
-</body>
-
-</html>
+@endsection
