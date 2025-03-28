@@ -77,6 +77,16 @@ return new class extends Migration {
             $table->foreignId('competence_id')->constrained('competence')->onDelete('cascade');
             $table->primary(['offre_id', 'competence_id']);
         });
+
+        Schema::dropIfExists('requiert');
+        Schema::dropIfExists('wishlist');
+        Schema::dropIfExists('postuler');
+        Schema::dropIfExists('candidature');
+        Schema::dropIfExists('competence');
+        Schema::dropIfExists('etudiant');
+        Schema::dropIfExists('utilisateur');
+        Schema::dropIfExists('offre');
+        Schema::dropIfExists('entreprise');
     }
 
     public function down(): void {

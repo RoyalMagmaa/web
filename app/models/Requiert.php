@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Requiert extends Model
+class Requiert extends Pivot
 {
-    //
+    protected $table = 'requiert';
+
+    public $timestamps = false;
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EntrepriseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,3 +41,7 @@ Route::get('/whishlist', function () {
 })->name("whishlist");
 
 Route::post('/offres', [AuthController::class, 'authentificate'])->name('auth');
+
+Route::get('/gestionEntreprises', [EntrepriseController::class, 'index']);
+
+Route::post('/gestionEntreprises', [EntrepriseController::class, 'store'])->name("store");
