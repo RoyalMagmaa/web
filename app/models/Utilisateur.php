@@ -2,20 +2,37 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Utilisateur extends Model {
-    protected $fillable = ['nom', 'prenom', 'email', 'mdp', 'role'];
+class Utilisateur extends Model
+{
+    use HasFactory;
 
-    public function etudiant() {
-        return $this->hasOne(Etudiant::class);
+    protected $fillable = ['nom', 'prenom', 'email', 'mdp', 'role', 'statut_id'];
+
+    public function statut()
+    {
+        return $this->belongsTo(Statut::class);
     }
 
-    public function candidatures() {
+    public function role()
+    {
+        return $this->hasOne(Role::class);
+    }
+
+    public function candidatures()
+    {
         return $this->hasMany(Candidature::class);
     }
-    
-    public function wishlist() {
+
+    public function wishlist()
+    {
         return $this->belongsToMany(Offre::class, 'wishlist');
+    }
+
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluer::class);
     }
 }

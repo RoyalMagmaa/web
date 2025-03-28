@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Candidature extends Model
+class Role extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['date_candid', 'lettre_motiv', 'cv', 'utilisateur_id', 'offre_id'];
+    protected $fillable = ['nom_role', 'utilisateur_id'];
 
     public function utilisateur()
     {
         return $this->belongsTo(Utilisateur::class);
-    }
-
-    public function offre()
-    {
-        return $this->belongsTo(Offre::class);
     }
 }
