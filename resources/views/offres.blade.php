@@ -4,7 +4,7 @@
 @section('titre','Accueil')
 
 @section('styles') 
-    @vite('resources/views/layouts/app.blade.php')
+    @vite('resources/css/style-offres.css')
 @endsection
 
 @section('main')

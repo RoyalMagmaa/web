@@ -7,9 +7,14 @@ use App\Models\Entreprise;
 
 class EntrepriseController extends Controller
 {
-    public function index() {
+    public function afficher_entreprise($id){
+        $entreprise = Entreprise::findOrFail($id);
+        return view('focusEntreprise', compact('entreprise'));
+    }
+
+    public function afficher_liste() {
         $entreprises = Entreprise::all(); // Récupérer toutes les entreprises
-        return view('gestionEntreprises', compact('entreprises')); // Envoyer les données à la vue
+        return view('entreprises', compact('entreprises')); // Envoyer les données à la vue
     }
 
     public function store(Request $request)

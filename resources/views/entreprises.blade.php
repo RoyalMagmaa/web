@@ -11,7 +11,7 @@
 
     <div class="main-section">
         <div class="header-section" style="background-image: url({{asset('images/backgroundOffre.png')}})" >
-            <h1 id="titre-offre">Choisissez une entreprises</h1>
+            <h1 id="titre-offre">Choisissez une entreprise</h1>
         </div>
         <div class="sub-section">
             <div class="offer-text">
@@ -23,5 +23,13 @@
                     <option value="">Toutes les villes</option>
                 </select>
             </form>
+            @foreach ($entreprises as $entreprise)
+            <div class="offre">
+                <a href="{{ route('focusEntreprise', ['id' => $entreprise->id]) }}">
+                    <p>{{ $entreprise->nom }}</p>
+                    <p>Note : {{ $entreprise->evaluation }}</p>
+                </a>
+            </div>
+            @endforeach
         </div>
 @endsection

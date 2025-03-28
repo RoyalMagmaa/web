@@ -12,10 +12,6 @@ Route::get('/offres', function () {
     return view('offres');
 })->name("offres");
 
-Route::get('/entreprises', function () {
-    return view('entreprises');
-})->name("entreprises");
-
 Route::get('/etudiant', function () {
     return view('etudiant');
 })->name("etudiant");
@@ -40,8 +36,13 @@ Route::get('/whishlist', function () {
     return view('whishlist');
 })->name("whishlist");
 
+
 Route::post('/offres', [AuthController::class, 'authentificate'])->name('auth');
 
-Route::get('/gestionEntreprises', [EntrepriseController::class, 'index']);
+Route::get('/entreprises', [EntrepriseController::class, 'afficher_liste'])->name('entreprises');
+
+Route::get('/entreprises/{id}', [EntrepriseController::class, 'afficher_entreprise'])->name('focusEntreprise');
+
+Route::get('/gestionEntreprises', [EntrepriseController::class, 'afficher']);
 
 Route::post('/gestionEntreprises', [EntrepriseController::class, 'store'])->name("store");

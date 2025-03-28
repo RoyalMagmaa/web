@@ -40,28 +40,40 @@
     color: white;
     margin-left: 8rem;
 }
-.offre{
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 50%;
-    padding-left: 1em;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
+.offre {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s;
+    border: 0.1rem solid;
+    margin-top: 1rem;
 }
 
-.offre a{
-    margin: 1rem;
-    padding: 1rem;
-    background-color: #17255A;
-    color: white;
-    height: 3rem;
-    border-radius: 0.3rem;
+.offre:hover {
+    transform: translateY(-5px);
 }
 
-.offre a:hover{
-    background-color: #0959ee;
+.offre a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.offre p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 1.1rem;
+}
+
+.offre p:first-child {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.offre p:last-child {
+    color: #888;
 }
 
 .pagination{
@@ -74,4 +86,22 @@
     background-color: #17255A;
     color: white;
     border-radius: 0.3rem;
+}
+
+.focus-entreprise {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.focus-entreprise h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.focus-entreprise p {
+    margin: 5px 0;
+    font-size: 1.1rem;
 }
