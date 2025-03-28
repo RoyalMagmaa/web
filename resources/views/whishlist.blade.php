@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Wishlist</title>
-    @vite('resources/css/style-base.css')
+
+@extends('layouts.app')
+
+@section('titre','Wishlist')
+
+@section('styles') 
     @vite('resources/css/style-etudiant.css')
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="navbar">
-                <a href="{{ route('offres') }}">Retour aux Offres</a>
-            </div>
-        </nav>
-    </header>
+@endsection
+
+@section('main')
     <div class="main-section">
         <div class="header-section">
             <h1 id="titre-offre">Votre Wishlist</h1>
@@ -32,5 +26,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

@@ -3,6 +3,10 @@
 
 @section('titre','Accueil')
 
+@section('styles') 
+    @vite('resources/views/layouts/app.blade.php')
+@endsection
+
 @section('main')
     <div class="main-section">
         <div class="header-section" style="background-image: url({{asset('images/backgroundOffre.png')}})" >

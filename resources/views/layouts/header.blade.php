@@ -1,4 +1,3 @@
-
 <nav>
     <div class="navbar" id="logo">
         <img src="{{ asset('images/logo.png') }}">

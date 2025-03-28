@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un compte étudiant</title>
-    @vite('resources/css/style-base.css')
+
+@extends('layouts.app')
+
+@section('titre','Gesetion Etudiant')
+
+@section('styles') 
     @vite('resources/css/style-etudiant.css')
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="navbar" id="reconnect">
-                <a href="#">Se reconnecter</a>
-            </div>
-            <div class="navbar">
-                <a href="etudiants.html">Les Étudiants</a>
-                <a href="#">Les entreprises</a>
-            </div>
-            <div class="navbar" id="wishlist-button">
-                <a href="#">Liste de souhaits</a>
-            </div>
-        </nav>
-    </header>
+@endsection
+
+@section('main')
     <div class="main-section">
         <div class="header-section">
             <h1 id="titre-offre">Modifier un compte étudiant</h1>
@@ -59,12 +45,4 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Gestion des Étudiants. Tous droits réservés.</p>
-            <a href="mentions-legales.html">Mentions légales</a>
-        </div>
-    </footer>
-    <script src="edit-student.js"></script>
-</body>
-</html>
+@endsection
