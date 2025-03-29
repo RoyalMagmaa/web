@@ -22,6 +22,14 @@
                     <option value="">Toutes les villes</option>
                 </select>
             </form>
+            @foreach ($offres as $offre)
+            <div class="offre">
+                <a href="{{ route('focusOffre', ['id' => $offre->id]) }}">
+                    <p>{{ $offre->titre }}</p>
+                    <p>{{ $offre->description }}</p>
+                </a>
+            </div>
+            @endforeach
         </div>
     </div>
 @endsection

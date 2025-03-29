@@ -12,6 +12,11 @@ class EntrepriseController extends Controller
         return view('focusEntreprise', compact('entreprise'));
     }
 
+    public function afficher_gestion() {
+        $entreprises = Entreprise::all(); // Récupérer toutes les entreprises
+        return view('gestionEntreprises', compact('entreprises')); // Envoyer les données à la vue
+    }
+
     public function afficher_liste() {
         $entreprises = Entreprise::all(); // Récupérer toutes les entreprises
         return view('entreprises', compact('entreprises')); // Envoyer les données à la vue

@@ -59,3 +59,32 @@
 .content .section p strong {
     color: #1f2937;
 }
+
+.focus-offre {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 700px;
+}
+
+.content .section {
+    margin-bottom: 25px;
+}
+
+.content .section h2 {
+    color: #374151;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d1d5db;
+    padding-bottom: 5px;
+}
+
+.content .section p {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.content .section p strong {
+    color: #1f2937;
+}

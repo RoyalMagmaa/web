@@ -2,23 +2,23 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EntrepriseController;
+use App\Http\Controllers\OffreController;
+use App\Http\Middleware\AuthMiddleware;
+use App\Http\Middleware\RoleMiddleware;
+
+use App\Http\Middleware\EnsureUserHasRole;
+
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('login');
-})->name("login");
+Route::get('/', [AuthController::class, 'showLoginForm'])->name("login");
+Route::post('/login', [AuthController::class, 'login'])->name("loginForm");
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/offres', function () {
-    return view('offres');
-})->name("offres");
+//->middleware(RoleMiddleware::class.':etudiant')
 
-Route::get('/etudiant', function () {
-    return view('etudiant');
-})->name("etudiant");
 
-Route::get('/gestionEntreprises', function () {
-    return view('gestionEntreprises');
-})->name("gestionEntreprises");
+Route::get('/gestionEntreprises', function () {return view('gestionEntreprises');})
+->name("gestionEntreprises");
 
 Route::get('/gestionEtudiants', function () {
     return view('gestionEtudiants');
@@ -26,23 +26,34 @@ Route::get('/gestionEtudiants', function () {
 
 Route::get('/gestionPilotes', function () {
     return view('gestionPilotes');
-})->name("gestionEtudiants");
-
-Route::get('/stats', function () {
-    return view('stats');
-})->name("stats");
+})->name("gestionPilotes");
 
 Route::get('/whishlist', function () {
     return view('whishlist');
 })->name("whishlist");
 
+Route::get('/offres', [OffreController::class, 'afficher_liste'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin'])
+->name('offres');
 
-Route::post('/offres', [AuthController::class, 'authentificate'])->name('auth');
+Route::get('/offres/{id}', [OffreController::class, 'afficher_offre'])
+->middleware(AuthMiddleware::class)
+->name('focusOffre');
 
-Route::get('/entreprises', [EntrepriseController::class, 'afficher_liste'])->name('entreprises');
 
-Route::get('/entreprises/{id}', [EntrepriseController::class, 'afficher_entreprise'])->name('focusEntreprise');
+Route::get('/entreprises', [EntrepriseController::class, 'afficher_liste'])
+->middleware(AuthMiddleware::class)
+->name('entreprises');
 
-Route::get('/gestionEntreprises', [EntrepriseController::class, 'afficher']);
+Route::get('/entreprises/{id}', [EntrepriseController::class, 'afficher_entreprise'])
+->middleware(AuthMiddleware::class)
+->name('focusEntreprise');
 
-Route::post('/gestionEntreprises', [EntrepriseController::class, 'store'])->name("store");
+
+Route::get('/gestionEntreprises', [EntrepriseController::class, 'afficher_gestion'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin']);
+
+Route::post('/gestionEntreprises', [EntrepriseController::class, 'store'])
+->middleware(AuthMiddleware::class)->name("store");

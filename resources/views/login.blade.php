@@ -15,11 +15,18 @@
             <h2>Authentifiez-vous pour accéder à la plateforme</h2>
         </div>
         <div class="entree-auth">
-            <form action="{{ route('auth') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('loginForm') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input class="email-entree" name="email" id="email-login" placeholder="Email" required type="text">
                 <input id="mdp-login" name="password" placeholder="Mot de passe" required type="password">
                 <button type="submit">Connexion</button>
+                @if ($errors->any())
+                    <div>
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
             </form>
         </div>
     </div>

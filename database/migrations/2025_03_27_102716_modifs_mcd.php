@@ -76,6 +76,7 @@ return new class extends Migration
             $table->string('mdp', 255);
             $table->foreignId('statut_id')->nullable()->constrained('statuts')->onDelete('set null');
             $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('set null');
+            $table->rememberToken();
             $table->timestamps();
         });
 
