@@ -4,7 +4,7 @@
 @section('titre','Entreprises')
 
 @section('styles') 
-    @vite('resources/css/style-offres.css')
+    @vite('resources/css/style-liste.css')
 @endsection
 
 @section('main')
@@ -14,8 +14,13 @@
             <h1 id="titre-offre">Choisissez une entreprise</h1>
         </div>
         <div class="sub-section">
-            <div class="offer-text">
-                <h2>Liste des entreprises</h2>
+            <div class="haut-liste">
+                <div>
+                    <h2>Liste des entreprises</h2>
+                </div>
+                @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+                <a id="boutonCreer" href="{{ route('entreprises.creer') }}">Ajouter une entreprise</a>
+                @endif
             </div>
             <form id="login-form" method="post">
                 <input id="input-recherche" placeholder="Rechercher une offre" required type="text">
@@ -24,8 +29,9 @@
                 </select>
             </form>
             @foreach ($entreprises as $entreprise)
-            <div class="offre">
-                <a href="{{ route('focusEntreprise', ['id' => $entreprise->id]) }}">
+            <div class="element-liste">
+                <a href="{{ route('entreprises.modifier', $entreprise) }}">Modifier</a>
+                <a href="{{ route('entreprises.focus', ['id' => $entreprise->id]) }}">
                     <p>{{ $entreprise->nom }}</p>
                     <p>Note : {{ $entreprise->evaluation }}</p>
                 </a>

@@ -85,6 +85,39 @@ header img {
     object-fit: contain; /* Garde les proportions sans déformation */
 }
 
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+#dropdown-menu a, #dropdown-menu button {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#dropdown-menu button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#dropdown-menu button:hover {
+    background-color: #d32f2f;
+}
+
 #profil-menu img {
     width: 80%;
     height: 80%;

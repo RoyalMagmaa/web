@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>@yield('titre')</title>
     @vite('resources/css/style-base.css')
+    @vite('resources/js/app.js')
     @yield('styles') {{-- Styles spécifiques à chaque page --}}
     <meta name="theme-color" content="#18206F">
 </head>

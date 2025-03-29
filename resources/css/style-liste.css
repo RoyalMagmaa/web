@@ -40,7 +40,8 @@
     color: white;
     margin-left: 8rem;
 }
-.offre {
+
+.element-liste {
     background-color: white;
     border-radius: 12px;
     padding: 20px;
@@ -49,31 +50,47 @@
     margin-top: 1rem;
 }
 
-.offre:hover {
+.element-liste:hover {
     transform: translateY(-5px);
 }
 
-.offre a {
+.element-liste a {
     text-decoration: none;
     color: inherit;
     display: block;
     height: 100%;
 }
 
-.offre p {
+.element-liste p {
     margin: 0;
     padding: 5px 0;
     font-size: 1.1rem;
 }
 
-.offre p:first-child {
+.element-liste p:first-child {
     font-size: 1.3rem;
     font-weight: bold;
     color: #333;
 }
 
-.offre p:last-child {
+.element-liste p:last-child {
     color: #888;
+}
+
+#boutonCreer{
+    background-color: #17255A;
+    color:white;
+    padding:1rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+#boutonCreer:hover{
+    background-color: grey;
+}
+
+.haut-liste{
+    display: flex;
+    justify-content: space-between;
 }
 
 .pagination{

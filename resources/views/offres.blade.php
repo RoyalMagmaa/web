@@ -4,7 +4,7 @@
 @section('titre','Accueil')
 
 @section('styles') 
-    @vite('resources/css/style-offres.css')
+    @vite('resources/css/style-liste.css')
 @endsection
 
 @section('main')
