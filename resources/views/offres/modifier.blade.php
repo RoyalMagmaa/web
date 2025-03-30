@@ -2,8 +2,12 @@
 
 @section('titre','Modification d\'offre')
 
-@section('main')
+@section('styles') 
+    @vite('resources/css/style-creer.css')
+@endsection
 
+@section('main')
+<div>
     <h1>Modifier {{ $offre->entreprise->nom }}</h1>
     <form action="{{ route('offres.update', $offre->id) }}" method="POST">
         @csrf
@@ -20,6 +24,7 @@
     
         <button type="submit">Mettre à jour</button>
     </form>
+</div>
 @endsection
 
 

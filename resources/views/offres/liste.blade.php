@@ -29,11 +29,14 @@
             </form>
             @foreach ($offres as $offre)
             <div class="element-liste">
-                <a href="{{ route('offres.modifier', $offre) }}">Modifier</a>
-                <a href="{{ route('offres.focus', ['id' => $offre->id]) }}">
-                    <p>{{ $offre->titre }}</p>
-                    <p>Description : {{ $offre->description }}</p>
-                </a>
+                <p>{{ $offre->titre }}</p>
+                <p>{{ $offre->entreprise->nom }}</p>
+                <div class="boutons-element">
+                    @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+                    <a href="{{ route('offres.modifier', $offre) }}">Modifier</a>
+                    @endif
+                    <a href="{{ route('offres.focus', ['id' => $offre->id]) }}">Consulter</a>
+                </div>
             </div>
             @endforeach
         </div>

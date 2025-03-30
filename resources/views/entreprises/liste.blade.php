@@ -30,12 +30,15 @@
             </form>
             @foreach ($entreprises as $entreprise)
             <div class="element-liste">
-                <a href="{{ route('entreprises.modifier', $entreprise) }}">Modifier</a>
-                <a href="{{ route('entreprises.focus', ['id' => $entreprise->id]) }}">
-                    <p>{{ $entreprise->nom }}</p>
-                    <p>Note : {{ $entreprise->evaluation }}</p>
-                </a>
+                <p>{{ $entreprise->nom }}</p>
+                <div class="boutons-element">
+                    @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+                    <a href="{{ route('entreprises.modifier', $entreprise) }}">Modifier</a>
+                    @endif
+                    <a href="{{ route('entreprises.focus', ['id' => $entreprise->id]) }}">Consulter</a>
+                </div>
             </div>
             @endforeach
         </div>
 @endsection
+

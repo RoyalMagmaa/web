@@ -29,13 +29,15 @@
             </form>
             @foreach ($etudiants as $etudiant)
             <div class="element-liste">
-                <a href="{{ route('etudiants.modifier', $etudiant) }}">Modifier</a>
-                <a href="{{ route('etudiants.focus', ['id' => $etudiant->id]) }}">
-                    <p>{{ $etudiant->prenom }} {{ $etudiant->nom }}</p>
-                    <p>{{ $etudiant->statut->nom_statut }}</p>
-                    
-                </a>
+                <p>{{ $etudiant->prenom}} {{ $etudiant->nom }} </p>
+                <div class="boutons-element">
+                    @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+                    <a href="{{ route('etudiants.modifier', $etudiant) }}">Modifier</a>
+                    @endif
+                    <a href="{{ route('etudiants.focus', ['id' => $etudiant->id]) }}">Consulter</a>
+                </div>
             </div>
             @endforeach
         </div>
 @endsection
+

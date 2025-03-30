@@ -2,8 +2,12 @@
 
 @section('titre','Modification d\'entreprise')
 
-@section('main')
+@section('styles') 
+    @vite('resources/css/style-creer.css')
+@endsection
 
+@section('main')
+<div>
     <h1>Modifier {{ $entreprise->nom }}</h1>
     <form action="{{ route('entreprises.update', ['id' => $entreprise->id]) }}" method="POST">
         @csrf
@@ -14,4 +18,5 @@
         <input type="text" name="telephone" value="{{ $entreprise->telephone }}" required>
         <button type="submit">Mettre à jour</button>
     </form>
+</div>
 @endsection

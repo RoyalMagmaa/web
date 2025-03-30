@@ -50,17 +50,6 @@
     margin-top: 1rem;
 }
 
-.element-liste:hover {
-    transform: translateY(-5px);
-}
-
-.element-liste a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    height: 100%;
-}
-
 .element-liste p {
     margin: 0;
     padding: 5px 0;
@@ -73,8 +62,18 @@
     color: #333;
 }
 
-.element-liste p:last-child {
-    color: #888;
+.boutons-element{
+    display:flex;
+    justify-content: left;
+}
+
+.boutons-element a{
+    padding:0.8rem;
+    background-color: #17255A;
+    border-radius:0.3rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    color: white;
 }
 
 #boutonCreer{

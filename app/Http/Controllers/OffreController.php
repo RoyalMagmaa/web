@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class OffreController extends Controller
 {
     public function afficher_liste() {
-        $offres = Offre::all(); // Récupérer toutes les offres
+        $offres = Offre::with('entreprise')->get(); // Récupérer toutes les offres
         return view('offres.liste', compact('offres')); // Envoyer les données à la vue
     }
     public function afficher($id){

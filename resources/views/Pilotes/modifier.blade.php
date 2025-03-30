@@ -2,8 +2,12 @@
 
 @section('titre','Modification de comptes étudiants')
 
-@section('main')
+@section('styles') 
+    @vite('resources/css/style-creer.css')
+@endsection
 
+@section('main')
+<div>
     <h1>Modifier {{ $pilote->prenom }} {{ $pilote->nom }}</h1>
     <form action="{{ route('pilotes.update', ['id' => $pilote->id]) }}" method="POST">
         @csrf
@@ -11,7 +15,7 @@
         <input type="text" name="nom" value="{{ $pilote->nom }}" required>
         <input type="text" name="prenom" value="{{ $pilote->prenom }}" required>
         <input type="email" name="email" value="{{ $pilote->email }}" required>
-        <input type="text" name="mdp" value="{{ $pilote->mdp }}" required>
+        <input type="text" name="mdp" placeholder="Nouveau mot de passe" required>
         <button type="submit">Mettre à jour</button>
         @if ($errors->any())
                     <div>
@@ -21,4 +25,5 @@
                     </div>
                 @endif
         </form>
+</div>
 @endsection
