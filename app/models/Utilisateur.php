@@ -12,7 +12,7 @@ class Utilisateur extends Authenticatable
     use HasFactory;
     use Notifiable;
 
-    protected $fillable = ['nom', 'prenom', 'email', 'role', 'statut_id'];
+    protected $fillable = ['nom', 'prenom', 'email', 'role_id', 'statut_id','mdp'];
     protected $hidden = ['mdp'];
 
     public function getAuthPassword(){

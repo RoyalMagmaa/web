@@ -13,8 +13,13 @@
             <h1 id="titre-offre">Choisissez le stage qui vous correspond</h1>
         </div>
         <div class="sub-section">
-            <div class="offer-text">
-                <h2>Offres de stages</h2>
+            <div class="haut-liste">
+                <div>
+                    <h2>Liste des offres</h2>
+                </div>
+                @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+                <a id="boutonCreer" href="{{ route('offres.creer') }}">Ajouter une offre</a>
+                @endif
             </div>
             <form id="login-form" method="post">
                 <input id="input-recherche" placeholder="Rechercher une offre" required type="text">
@@ -23,10 +28,11 @@
                 </select>
             </form>
             @foreach ($offres as $offre)
-            <div class="offre">
-                <a href="{{ route('focusOffre', ['id' => $offre->id]) }}">
+            <div class="element-liste">
+                <a href="{{ route('offres.modifier', $offre) }}">Modifier</a>
+                <a href="{{ route('offres.focus', ['id' => $offre->id]) }}">
                     <p>{{ $offre->titre }}</p>
-                    <p>{{ $offre->description }}</p>
+                    <p>Description : {{ $offre->description }}</p>
                 </a>
             </div>
             @endforeach

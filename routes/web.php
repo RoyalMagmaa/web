@@ -3,10 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\OffreController;
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\PiloteController;
+
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\RoleMiddleware;
-
-use App\Http\Middleware\EnsureUserHasRole;
 
 use Illuminate\Support\Facades\Route;
 
@@ -16,18 +17,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //->middleware(RoleMiddleware::class.':etudiant')
 
-
-Route::get('/gestionEntreprises', function () {return view('gestionEntreprises');})
-->name("gestionEntreprises");
-
-Route::get('/gestionEtudiants', function () {
-    return view('gestionEtudiants');
-})->name("gestionEtudiants");
-
-Route::get('/gestionOffres', function () {
-    return view('gestionEtudiants');
-})->name("gestionOffres");
-
 Route::get('/gestionPilotes', function () {
     return view('gestionPilotes');
 })->name("gestionPilotes");
@@ -36,14 +25,33 @@ Route::get('/whishlist', function () {
     return view('whishlist');
 })->name("wishlist");
 
-Route::get('/offres', [OffreController::class, 'afficher_liste'])
+
+
+Route::get('/offres/liste', [OffreController::class, 'afficher_liste'])
 ->middleware(AuthMiddleware::class)
 //->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin'])
-->name('offres');
+->name('offres.liste');
 
-Route::get('/offres/{id}', [OffreController::class, 'afficher_offre'])
+Route::get('/offres/liste/{id}', [OffreController::class, 'afficher'])
 ->middleware(AuthMiddleware::class)
-->name('focusOffre');
+->name('offres.focus');
+
+Route::get('/offres/creer', [OffreController::class, 'afficher_creer'])
+->middleware(AuthMiddleware::class)
+->name('offres.creer');
+
+Route::get('/offres/modifier/{id}', [OffreController::class, 'afficher_modifier'])
+->middleware(AuthMiddleware::class)
+->name('offres.modifier');
+
+Route::put('/offres/modifier/{id}', [OffreController::class, 'update'])
+->middleware(AuthMiddleware::class)
+->name("offres.update");
+
+Route::post('/offres/creer', [OffreController::class, 'store'])
+->middleware(AuthMiddleware::class)
+->name("offres.store");
+
 
 
 Route::get('/entreprises/liste', [EntrepriseController::class, 'afficher_liste'])
@@ -70,6 +78,56 @@ Route::get('/entreprises/liste/{id}', [EntrepriseController::class, 'afficher'])
 ->middleware(AuthMiddleware::class)
 ->name('entreprises.focus');
 
-/*
-Route::post('/entreprises/liste', [EntrepriseController::class, 'store'])
-->middleware(AuthMiddleware::class)->name("store");*/
+
+
+
+Route::get('/etudiants/liste', [EtudiantController::class, 'afficher_liste'])
+->middleware(AuthMiddleware::class)
+->name('etudiants.liste');
+
+Route::get('/etudiants/liste/{id}', [EtudiantController::class, 'afficher'])
+->middleware(AuthMiddleware::class)
+->name('etudiants.focus');
+
+Route::get('/etudiants/creer', [EtudiantController::class, 'afficher_creer'])
+->middleware(AuthMiddleware::class)
+->name('etudiants.creer');
+
+Route::get('/etudiants/modifier/{id}', [EtudiantController::class, 'afficher_modifier'])
+->middleware(AuthMiddleware::class)
+->name('etudiants.modifier');
+
+Route::put('/etudiants/modifier/{id}', [EtudiantController::class, 'update'])
+->middleware(AuthMiddleware::class)
+->name("etudiants.update");
+
+Route::post('/etudiants/creer', [EtudiantController::class, 'store'])
+->middleware(AuthMiddleware::class)
+->name("etudiants.store");
+
+
+
+
+Route::get('/pilotes/liste', [PiloteController::class, 'afficher_liste'])
+->middleware(AuthMiddleware::class)
+->name('pilotes.liste');
+
+Route::get('/pilotes/liste/{id}', [PiloteController::class, 'afficher'])
+->middleware(AuthMiddleware::class)
+->name('pilotes.focus');
+
+Route::get('/pilotes/creer', [PiloteController::class, 'afficher_creer'])
+->middleware(AuthMiddleware::class)
+->name('pilotes.creer');
+
+Route::get('/pilotes/modifier/{id}', [PiloteController::class, 'afficher_modifier'])
+->middleware(AuthMiddleware::class)
+->name('pilotes.modifier');
+
+Route::put('/pilotes/modifier/{id}', [PiloteController::class, 'update'])
+->middleware(AuthMiddleware::class)
+->name("pilotes.update");
+
+Route::post('/pilotes/creer', [PiloteController::class, 'store'])
+->middleware(AuthMiddleware::class)
+->name("pilotes.store");

@@ -7,19 +7,19 @@
     @if(Auth::user()->role->nom_role === 'Admin')
     <div class="navbar">
         <a href="{{ route('entreprises.liste') }}">Entreprises</a>
-        <a href="{{ route('gestionEtudiants') }}">Etudiants</a>
-        <a href="{{ route('gestionOffres') }}">Offres</a>
-        <a href="{{ route('gestionPilotes') }}">Pilotes</a>
+        <a href="{{ route('etudiants.liste') }}">Etudiants</a>
+        <a href="{{ route('offres.liste') }}">Offres</a>
+        <a href="{{ route('pilotes.liste') }}">Pilotes</a>
     </div>
     @elseif(Auth::user()->role->nom_role === 'Pilote')
     <div class="navbar">
         <a href="{{ route('entreprises.liste') }}">Entreprises</a>
-        <a href="{{ route('gestionEtudiants') }}">Etudiants</a>
-        <a href="{{ route('offres') }}">Offres</a>
+        <a href="{{ route('etudiants.liste') }}">Etudiants</a>
+        <a href="{{ route('offres.liste') }}">Offres</a>
     </div>
     @elseif(Auth::user()->role->nom_role === 'Etudiant')
     <div class="navbar">
-        <a href="{{ route('offres') }}">Offres</a>
+        <a href="{{ route('offres.liste') }}">Offres</a>
         <a href="{{ route('entreprises.liste') }}">Entreprises</a>
     </div>
     @endif

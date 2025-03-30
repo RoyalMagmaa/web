@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Si la connexion est réussie
-            return redirect()->route('offres');
+            return redirect()->route('offres.liste');
         } else {
             return redirect()->route('login')->withErrors(['email' => 'Identifiants incorrects.']);
         }
