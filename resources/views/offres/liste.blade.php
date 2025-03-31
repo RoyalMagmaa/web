@@ -32,10 +32,15 @@
                 <p>{{ $offre->titre }}</p>
                 <p>{{ $offre->entreprise->nom }}</p>
                 <div class="boutons-element">
+                    <a href="{{ route('offres.focus', ['id' => $offre->id]) }}">Consulter</a>
                     @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
                     <a href="{{ route('offres.modifier', $offre) }}">Modifier</a>
+                    <form action="{{ route('offres.supprimer', $offre->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');">
+                        @csrf
+                        @method('DELETE')
+                        <button id="supprimer" type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
                     @endif
-                    <a href="{{ route('offres.focus', ['id' => $offre->id]) }}">Consulter</a>
                 </div>
             </div>
             @endforeach

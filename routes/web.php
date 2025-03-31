@@ -48,9 +48,9 @@ Route::put('/offres/modifier/{id}', [OffreController::class, 'update'])
     ->name("offres.update");
 
 Route::post('/offres/creer', [OffreController::class, 'store'])
-    ->middleware(AuthMiddleware::class)
-    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
-    ->name("offres.store");
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name("offres.store");
 
 
 
@@ -81,6 +81,10 @@ Route::get('/entreprises/liste/{id}', [EntrepriseController::class, 'afficher'])
     ->middleware(AuthMiddleware::class)
     ->name('entreprises.focus');
 
+Route::delete('/entreprises/{id}', [EntrepriseController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('entreprises.supprimer');
 
 
 
@@ -114,6 +118,10 @@ Route::post('/etudiants/creer', [EtudiantController::class, 'store'])
     ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
     ->name("etudiants.store");
 
+Route::delete('/etudiants/{id}', [EtudiantController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('etudiants.supprimer');
 
 
 
@@ -143,6 +151,6 @@ Route::put('/pilotes/modifier/{id}', [PiloteController::class, 'update'])
     ->name("pilotes.update");
 
 Route::post('/pilotes/creer', [PiloteController::class, 'store'])
-    ->middleware(AuthMiddleware::class)
-    ->middleware(['auth', RoleMiddleware::class . ':Admin'])
-    ->name("pilotes.store");
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Admin'])
+->name("pilotes.store");
