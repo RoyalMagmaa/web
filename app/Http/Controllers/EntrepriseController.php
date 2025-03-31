@@ -54,4 +54,12 @@ class EntrepriseController extends Controller
         // Rediriger avec un message
         return redirect()->route('entreprises.liste')->with('success', 'Entreprise créée avec succès.');
     }
+
+    public function supprimer($id)
+    {
+        $entreprise = Entreprise::findOrFail($id);
+        $entreprise->delete();
+
+        return redirect()->route('entreprises.liste')->with('success', 'Entreprise supprimée avec succès.');
+    }
 }

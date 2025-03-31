@@ -75,6 +75,27 @@
     margin-top: 0.5rem;
     color: white;
 }
+#supprimer {
+    padding: 0.8rem 1.2rem;
+    color: white;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+    background-color: #bf0909;
+    border: 2px solid #bf0909;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#supprimer:hover {
+    color: #bf0909;
+    background-color: white;
+}
+
+#supprimer:active {
+    transform: scale(0.97);
+}
 
 #boutonCreer{
     background-color: #17255A;

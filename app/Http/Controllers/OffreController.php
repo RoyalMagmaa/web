@@ -87,4 +87,11 @@ class OffreController extends Controller
         // Rediriger avec un message
         return redirect()->route('offres.liste')->with('success', 'Offre créée avec succès.');
     }
+    public function supprimer($id)
+    {
+        $offre = Offre::findOrFail($id);
+        $offre->delete();
+
+        return redirect()->route('offres.liste')->with('success', 'Offre supprimée avec succès.');
+    }
 }

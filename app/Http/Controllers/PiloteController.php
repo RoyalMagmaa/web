@@ -70,4 +70,12 @@ class PiloteController extends Controller
         // Rediriger avec un message
         return redirect()->route('pilotes.liste')->with('success', 'Étudiant créé avec succès.');
     }
+
+    public function supprimer($id)
+    {
+        $etudiant = Utilisateur::findOrFail($id);
+        $etudiant->delete();
+
+        return redirect()->route('etudiants.liste')->with('success', 'Étudiant supprimé avec succès.');
+    }
 }
