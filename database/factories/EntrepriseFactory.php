@@ -21,7 +21,7 @@ class EntrepriseFactory extends Factory
     {
         return [
             'nom' => $this->faker->company,
-            'description' => $this->faker->catchPhrase,
+            'description' => collect($this->faker->paragraphs(3))->join(' '),
             'email' => $this->faker->companyEmail,
             'telephone' => $this->faker->phoneNumber,
             'evaluation' => $this->faker->randomFloat(2, 0, 5),

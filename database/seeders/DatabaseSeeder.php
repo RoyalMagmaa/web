@@ -51,45 +51,44 @@ class DatabaseSeeder extends Seeder
             });
         });
 
-        // Création de 15 utilisateurs
-        Utilisateur::factory(15)->create()->each(function ($utilisateur) use ($faker) {
+        Utilisateur::factory(40)->create()->each(function ($utilisateur) use ($faker) {
             // Associer un rôle aléatoire
             $role = Role::inRandomOrder()->first();
             $utilisateur->role_id = $role->id;
             $utilisateur->save();
-
+        
             // Si le rôle est Etudiant, lui donner un statut
             if ($role->nom_role === 'Etudiant') {
                 $statut = Statut::inRandomOrder()->first();
                 $utilisateur->statut_id = $statut->id;
                 $utilisateur->save();
-            }
-
-            // Générer des candidatures
-            $offres = Offre::inRandomOrder()->limit(rand(1, 3))->pluck('id');
-            foreach ($offres as $offre) {
-                Candidature::factory()->create([
-                    'utilisateur_id' => $utilisateur->id,
-                    'offre_id' => $offre
-                ]);
-            }
-
-            // Ajouter des offres à la wishlist
-            $wishlistOffres = Offre::inRandomOrder()->limit(rand(1, 5))->pluck('id');
-            foreach ($wishlistOffres as $offre) {
-                Wishlist::factory()->create([
-                    'utilisateur_id' => $utilisateur->id,
-                    'offre_id' => $offre
-                ]);
-            }
-
-            // Évaluation des entreprises
-            $entreprises = Entreprise::inRandomOrder()->limit(rand(1, 3))->pluck('id');
-            foreach ($entreprises as $entreprise) {
-                Evaluer::factory()->create([
-                    'utilisateur_id' => $utilisateur->id,
-                    'entreprise_id' => $entreprise,
-                ]);
+        
+                // 🔑 Générer des candidatures uniquement pour les Etudiants
+                $offres = Offre::inRandomOrder()->limit(rand(0, 3))->pluck('id');
+                foreach ($offres as $offre) {
+                    Candidature::factory()->create([
+                        'utilisateur_id' => $utilisateur->id,
+                        'offre_id' => $offre
+                    ]);
+                }
+        
+                // 🔑 Ajouter des offres à la wishlist uniquement pour les Etudiants
+                $wishlistOffres = Offre::inRandomOrder()->limit(rand(1, 5))->pluck('id');
+                foreach ($wishlistOffres as $offre) {
+                    Wishlist::factory()->create([
+                        'utilisateur_id' => $utilisateur->id,
+                        'offre_id' => $offre
+                    ]);
+                }
+        
+                // 🔑 Évaluation des entreprises uniquement pour les Etudiants
+                $entreprises = Entreprise::inRandomOrder()->limit(rand(1, 3))->pluck('id');
+                foreach ($entreprises as $entreprise) {
+                    Evaluer::factory()->create([
+                        'utilisateur_id' => $utilisateur->id,
+                        'entreprise_id' => $entreprise,
+                    ]);
+                }
             }
         });
     }

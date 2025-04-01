@@ -31,9 +31,13 @@ Route::get('/wishlist', [WishlistController::class, 'afficher'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
 
+
+
 Route::get('/mentionsLegales', function () {
     return view('mentionsLegales');
 })->name("mentionsLegales");
+
+
 
 Route::get('/offres/liste', [OffreController::class, 'afficher_liste'])
 ->middleware(AuthMiddleware::class)
@@ -62,6 +66,11 @@ Route::post('/offres/creer', [OffreController::class, 'store'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
 ->name("offres.store");
+
+Route::delete('/offres/{id}', [OffreController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('offres.supprimer');
 
 
 
@@ -165,3 +174,8 @@ Route::post('/pilotes/creer', [PiloteController::class, 'store'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Admin'])
 ->name("pilotes.store");
+
+Route::delete('/pilotes/{id}', [PiloteController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('pilotes.supprimer');

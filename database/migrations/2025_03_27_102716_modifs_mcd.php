@@ -32,7 +32,7 @@ return new class extends Migration
         Schema::create('entreprises', function (Blueprint $table) {
             $table->id();
             $table->string('nom', 50);
-            $table->string('description', 255);
+            $table->text('description');
             $table->string('email', 50);
             $table->string('telephone', 50);
             $table->decimal('evaluation', 15, 2)->nullable();
@@ -42,7 +42,7 @@ return new class extends Migration
         Schema::create('offres', function (Blueprint $table) {
             $table->id();
             $table->string('titre', 50);
-            $table->string('description', 255);
+            $table->text('description');
             $table->decimal('salaire', 15, 2);
             $table->date('date_debut');
             $table->date('date_fin')->nullable();
@@ -75,12 +75,10 @@ return new class extends Migration
             $table->string('email', 50)->unique();
             $table->string('mdp', 255);
             $table->foreignId('statut_id')->nullable()->constrained('statuts')->onDelete('set null');
-            $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('set null');
+            $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
-
-        
 
         Schema::create('candidatures', function (Blueprint $table) {
             $table->id();
