@@ -6,6 +6,7 @@ use App\Http\Controllers\OffreController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\PiloteController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CandidatureController;
 
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\RoleMiddleware;
@@ -15,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AuthController::class, 'showLoginForm'])->name("login");
 Route::post('/login', [AuthController::class, 'login'])->name("loginForm");
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/candidatures/{offre_id}', [CandidatureController::class, 'afficher'])
+->name('candidatures')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+Route::post('/candidatures/{offre_id}', [CandidatureController::class, 'store'])
+->name('candidatures.store')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+
 
 Route::post('/wishlist/ajouter/{offre_id}', [WishlistController::class, 'ajouter'])
 ->name('wishlist.ajouter')

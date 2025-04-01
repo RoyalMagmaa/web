@@ -28,6 +28,11 @@
                 <p><strong>Date de fin :</strong> {{ $offre->date_fin }}</p>
             </div>
         </div>
+        @if(Auth::user()->role->nom_role === 'Etudiant')
+        <div class=postuler>
+            <a href="{{ route('candidatures', ['offre_id' => $offre->id]) }}">Postuler</a>
+        </div>
+        @endif
     </div>
 </div>
 
