@@ -23,6 +23,8 @@
 
             <div class="section">
                 <h2>Statistiques</h2>
+                <p><strong>Nombre de candidatures faites : </strong> {{ $etudiant->candidatures_count }}</p>
+                <p><strong>Nombre d'offres dans la wishlist : </strong> {{ $etudiant->wishlist_count }}</p>
             </div>
         </div>
     </div>

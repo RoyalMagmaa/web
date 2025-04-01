@@ -8,10 +8,10 @@ use App\Models\Entreprise;
 class EntrepriseController extends Controller
 {
     public function afficher($id)
-    {
+{
         $entreprise = Entreprise::findOrFail($id);
         return view('entreprises.focus', compact('entreprise'));
-    }
+}
 
     public function afficher_liste()
     {

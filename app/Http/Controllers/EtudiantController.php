@@ -21,9 +21,13 @@ class EtudiantController extends Controller
 
     public function afficher($id)
     {
-        $etudiant = Utilisateur::with('statut')->findOrFail($id);
+        $etudiant = Utilisateur::with(['statut'])
+            ->withCount(['candidatures', 'wishlist'])
+            ->findOrFail($id);
+
         return view('etudiants.focus', compact('etudiant'));
     }
+
     public function afficher_creer()
     {
         $statuts = Statut::all(); // Récupère tous les statuts de la table statut
