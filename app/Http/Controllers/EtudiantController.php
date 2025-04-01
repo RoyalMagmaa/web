@@ -8,6 +8,7 @@ use App\Models\Statut;
 use App\Models\Entreprise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class EtudiantController extends Controller
@@ -91,5 +92,32 @@ class EtudiantController extends Controller
         $etudiant->delete();
 
         return redirect()->route('etudiants.liste')->with('success', 'Étudiant supprimé avec succès.');
+    }
+    public function afficher_profil()
+    {
+        $etudiant = Auth::user(); // Récupère l'utilisateur connecté
+        return view('etudiants.profil', compact('etudiant'));
+    }
+    public function modifier_statut(Request $request)
+    {
+        // Valider le statut envoyé
+        $request->validate([
+            'statut' => 'required|string|in:En recherche,En stage',
+        ]);
+    
+        // Récupérer l'utilisateur connecté
+        $etudiant = Auth::user();
+    
+        // Récupérer l'ID du statut correspondant dans la table `statuts`
+        $statut = Statut::where('nom_statut', $request->statut)->first();
+    
+        if ($statut) {
+            // Mettre à jour la clé étrangère `statut_id` dans la table `utilisateurs`
+            $etudiant->statut_id = $statut->id;
+            $etudiant->save();
+        }
+    
+        // Rediriger avec un message de succès
+        return redirect()->route('profil')->with('success', 'Statut mis à jour avec succès.');
     }
 }

@@ -156,6 +156,14 @@ Route::delete('/etudiants/{id}', [EtudiantController::class, 'supprimer'])
 ->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
 ->name('etudiants.supprimer');
 
+Route::get('/profil', [EtudiantController::class, 'afficher_profil'])
+    ->middleware(['auth', RoleMiddleware::class . ':Etudiant'])
+    ->name('profil');
+
+Route::post('/profil/modifier-statut', [EtudiantController::class, 'modifier_statut'])
+    ->middleware(['auth'])
+    ->name('profil.modifier_statut');
+
 
 
 Route::get('/pilotes/liste', [PiloteController::class, 'afficher_liste'])

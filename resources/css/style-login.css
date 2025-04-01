@@ -1,87 +1,127 @@
-.conteneur-auth {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .auth {
-    margin: auto;
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
-  }
-  
-  .auth > * {
-    flex: 1;
-    flex-basis: 18rem;
-    max-width: 26rem;
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    justify-content: center;
-  }
+/* Amélioration du design */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffffff, #007bff);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 
-  .entree-auth form {
-    display: flex;
-    gap: 0.8rem;
-    flex-direction: column;
-    max-width: 20rem;
+.conteneur-auth {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.logo-login {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #007bff;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.entree-auth form {
+  display: flex;
+  flex-direction: column;
+}
+
+.entree-auth input[type="text"],
+.entree-auth input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.entree-auth input[type="text"]:focus,
+.entree-auth input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.entree-auth button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.entree-auth button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.entree-auth button:active {
+  transform: scale(0.98);
+}
+
+/* Media Queries */
+@media (max-width: 1000px) {
+  .conteneur-auth {
+    max-width: 90%;
+    padding: .5rem;
   }
-  
+  .logo-login {
+    width: 160px;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
   .entree-auth input[type="text"],
   .entree-auth input[type="password"],
   .entree-auth button {
-    min-height: 1rem;
-    background-color: white;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 3rem;
-    border-radius: 9px;
-    border-style: solid;
-    padding: 0 5% 0 5%;
+    font-size: 2.5rem;
+    padding: 0.9rem;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .conteneur-auth {
+    max-width: 95%;
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  h2 {
+    font-size: 0.9rem;
+  }
   .entree-auth input[type="text"],
-  .entree-auth input[type="password"] {
-    font-size: clamp(0.8rem, 5vw, 1rem);
-    color: #777777;
-    border-width: 2px;
-  }
-  
+  .entree-auth input[type="password"],
   .entree-auth button {
-    margin-top: 0.9rem;
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    font-size: 1.56rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
   }
-
-  .logo-login {
-    width: 100px;
-    height: auto;
-}
-button {
-  background-color: #007bff; /* Bleu */
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3; /* Bleu plus foncé */
-  transform: scale(1.05);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-  transform: scale(0.98);
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
