@@ -11,6 +11,7 @@
     <div class="header-section">
         <h1 id="titre-offre">Mentions Légales</h1>
     </div>
+    <br><br>
     <div class="container">
         <h2>Mentions Légales</h2>
         <h2>1. Éditeur du site</h2>
@@ -48,5 +49,6 @@
         <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux compétents
             seront ceux du ressort du siège social de l'entreprise.</p>
     </div>
+    <br><br>
 </div>
 @endsection

@@ -46,9 +46,9 @@ Route::get('/wishlist', [WishlistController::class, 'afficher'])
 
 
 
-Route::get('/mentionsLegales', function () {
-    return view('mentionsLegales');
-})->name("mentionsLegales");
+Route::view('/mentionsLegales', 'mentionsLegales')->name('mentionsLegales');
+Route::view('/politique-confidentialite', 'politiqueConfidentialite')->name('politique.confidentialite');
+Route::view('/politique-cookies', 'politiqueCookies')->name('politique.cookies');
 
 
 
