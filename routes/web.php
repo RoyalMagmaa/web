@@ -5,6 +5,7 @@ use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\OffreController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\PiloteController;
+use App\Http\Controllers\WishlistController;
 
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\RoleMiddleware;
@@ -15,18 +16,28 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name("login");
 Route::post('/login', [AuthController::class, 'login'])->name("loginForm");
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/whishlist', function () {
-    return view('whishlist');
-})->name("wishlist");
+Route::post('/wishlist/ajouter/{offre_id}', [WishlistController::class, 'ajouter'])
+->name('wishlist.ajouter')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+Route::delete('/wishlist/supprimer/{id}', [WishlistController::class, 'supprimer'])
+->name('wishlist.supprimer')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+Route::get('/wishlist', [WishlistController::class, 'afficher'])
+->name('wishlist')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
 
 Route::get('/mentionsLegales', function () {
     return view('mentionsLegales');
 })->name("mentionsLegales");
 
 Route::get('/offres/liste', [OffreController::class, 'afficher_liste'])
-    ->middleware(AuthMiddleware::class)
-    //->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin'])
-    ->name('offres.liste');
+->middleware(AuthMiddleware::class)
+->name('offres.liste');
 
 Route::get('/offres/liste/{id}', [OffreController::class, 'afficher'])
     ->middleware(AuthMiddleware::class)
