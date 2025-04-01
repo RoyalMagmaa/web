@@ -2,46 +2,166 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EntrepriseController;
+use App\Http\Controllers\OffreController;
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\PiloteController;
+use App\Http\Controllers\WishlistController;
+
+use App\Http\Middleware\AuthMiddleware;
+use App\Http\Middleware\RoleMiddleware;
+
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('login');
-})->name("login");
+Route::get('/', [AuthController::class, 'showLoginForm'])->name("login");
+Route::post('/login', [AuthController::class, 'login'])->name("loginForm");
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/offres', function () {
-    return view('offres');
-})->name("offres");
+Route::post('/wishlist/ajouter/{offre_id}', [WishlistController::class, 'ajouter'])
+->name('wishlist.ajouter')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
 
-Route::get('/entreprises', function () {
-    return view('entreprises');
-})->name("entreprises");
+Route::delete('/wishlist/supprimer/{id}', [WishlistController::class, 'supprimer'])
+->name('wishlist.supprimer')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
 
-Route::get('/etudiant', function () {
-    return view('etudiant');
-})->name("etudiant");
+Route::get('/wishlist', [WishlistController::class, 'afficher'])
+->name('wishlist')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
 
-Route::get('/gestionEntreprises', function () {
-    return view('gestionEntreprises');
-})->name("gestionEntreprises");
+Route::get('/mentionsLegales', function () {
+    return view('mentionsLegales');
+})->name("mentionsLegales");
 
-Route::get('/gestionEtudiants', function () {
-    return view('gestionEtudiants');
-})->name("gestionEtudiants");
+Route::get('/offres/liste', [OffreController::class, 'afficher_liste'])
+->middleware(AuthMiddleware::class)
+->name('offres.liste');
 
-Route::get('/gestionPilotes', function () {
-    return view('gestionPilotes');
-})->name("gestionEtudiants");
+Route::get('/offres/liste/{id}', [OffreController::class, 'afficher'])
+    ->middleware(AuthMiddleware::class)
+    ->name('offres.focus');
 
-Route::get('/stats', function () {
-    return view('stats');
-})->name("stats");
+Route::get('/offres/creer', [OffreController::class, 'afficher_creer'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name('offres.creer');
 
-Route::get('/whishlist', function () {
-    return view('whishlist');
-})->name("whishlist");
+Route::get('/offres/modifier/{id}', [OffreController::class, 'afficher_modifier'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name('offres.modifier');
 
-Route::post('/offres', [AuthController::class, 'authentificate'])->name('auth');
+Route::put('/offres/modifier/{id}', [OffreController::class, 'update'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name("offres.update");
 
-Route::get('/gestionEntreprises', [EntrepriseController::class, 'index']);
+Route::post('/offres/creer', [OffreController::class, 'store'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name("offres.store");
 
-Route::post('/gestionEntreprises', [EntrepriseController::class, 'store'])->name("store");
+
+
+Route::get('/entreprises/liste', [EntrepriseController::class, 'afficher_liste'])
+    ->middleware(AuthMiddleware::class)
+    ->name('entreprises.liste');
+
+Route::get('/entreprises/creer', [EntrepriseController::class, 'afficher_creer'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name('entreprises.creer');
+
+Route::get('/entreprises/modifier/{id}', [EntrepriseController::class, 'afficher_modifier'])
+    ->middleware(AuthMiddleware::class)
+    ->name('entreprises.modifier');
+
+Route::put('/entreprises/modifier/{id}', [EntrepriseController::class, 'update'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name("entreprises.update");
+
+Route::post('/entreprises/creer', [EntrepriseController::class, 'store'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name("entreprises.store");
+
+Route::get('/entreprises/liste/{id}', [EntrepriseController::class, 'afficher'])
+    ->middleware(AuthMiddleware::class)
+    ->name('entreprises.focus');
+
+Route::delete('/entreprises/{id}', [EntrepriseController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('entreprises.supprimer');
+
+
+
+Route::get('/etudiants/liste', [EtudiantController::class, 'afficher_liste'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name('etudiants.liste');
+
+Route::get('/etudiants/liste/{id}', [EtudiantController::class, 'afficher'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name('etudiants.focus');
+
+Route::get('/etudiants/creer', [EtudiantController::class, 'afficher_creer'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name('etudiants.creer');
+
+Route::get('/etudiants/modifier/{id}', [EtudiantController::class, 'afficher_modifier'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name('etudiants.modifier');
+
+Route::put('/etudiants/modifier/{id}', [EtudiantController::class, 'update'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name("etudiants.update");
+
+Route::post('/etudiants/creer', [EtudiantController::class, 'store'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Pilote|Admin'])
+    ->name("etudiants.store");
+
+Route::delete('/etudiants/{id}', [EtudiantController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('etudiants.supprimer');
+
+
+
+Route::get('/pilotes/liste', [PiloteController::class, 'afficher_liste'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Admin'])
+    ->name('pilotes.liste');
+
+Route::get('/pilotes/liste/{id}', [PiloteController::class, 'afficher'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Admin'])
+    ->name('pilotes.focus');
+
+Route::get('/pilotes/creer', [PiloteController::class, 'afficher_creer'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Admin'])
+    ->name('pilotes.creer');
+
+Route::get('/pilotes/modifier/{id}', [PiloteController::class, 'afficher_modifier'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Admin'])
+    ->name('pilotes.modifier');
+
+Route::put('/pilotes/modifier/{id}', [PiloteController::class, 'update'])
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class . ':Admin'])
+    ->name("pilotes.update");
+
+Route::post('/pilotes/creer', [PiloteController::class, 'store'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Admin'])
+->name("pilotes.store");

@@ -11,28 +11,23 @@ class Offre extends Model
 
     protected $fillable = ['titre', 'description', 'salaire', 'date_debut', 'date_fin', 'entreprise_id'];
 
-    public function entreprise()
-    {
+    public function entreprise(){
         return $this->belongsTo(Entreprise::class);
     }
 
-    public function candidatures()
-    {
+    public function candidatures(){
         return $this->hasMany(Candidature::class);
     }
 
-    public function utilisateursWishlist()
-    {
+    public function utilisateursWishlist(){
         return $this->belongsToMany(Utilisateur::class, 'wishlist');
     }
 
-    public function utilisateursPostulants()
-    {
+    public function utilisateursPostulants(){
         return $this->hasMany(Candidature::class);
     }
 
-    public function competences()
-    {
+    public function competences(){
         return $this->belongsToMany(Competence::class, 'requiert');
     }
 }
