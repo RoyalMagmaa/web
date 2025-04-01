@@ -16,9 +16,9 @@
 
         <div class="content">
             <div class="section">
-                <h2>Identifiants</h2>
+                <h2>Informations</h2>
                 <p>{{ $etudiant->email }}</p>
-                <p>statut :{{ $etudiant->statut->nom_statut}}</p>
+                <p>{{ $etudiant->statut->nom_statut}}</p>
             </div>
 
             <div class="section">

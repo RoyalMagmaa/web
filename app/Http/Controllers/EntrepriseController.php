@@ -8,14 +8,30 @@ use App\Models\Entreprise;
 class EntrepriseController extends Controller
 {
     public function afficher($id)
-{
-        $entreprise = Entreprise::findOrFail($id);
-        return view('entreprises.focus', compact('entreprise'));
-}
-
-    public function afficher_liste()
     {
-        $entreprises = Entreprise::paginate(10); // Récupérer toutes les entreprises
+        $entreprise = Entreprise::withCount('offres')
+            ->with(['offres' => function($query) {
+                $query->withCount('candidatures');
+            }])
+            ->findOrFail($id);
+
+        // Calcul du nombre total de candidatures sur toutes les offres de l'entreprise
+        $totalCandidatures = $entreprise->offres->sum('candidatures_count');
+
+        return view('entreprises.focus', compact('entreprise', 'totalCandidatures'));
+    }
+
+    public function afficher_liste(Request $request)
+    {
+        $query = Entreprise::query();
+
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where('nom', 'LIKE', "%{$search}%")
+                  ->orWhere('description', 'LIKE', "%{$search}%");
+        }
+    
+        $entreprises = $query->paginate(10); // Pagination pour une meilleure lisibilité
         return view('entreprises.liste', compact('entreprises')); // Envoyer les données à la vue
     }
 

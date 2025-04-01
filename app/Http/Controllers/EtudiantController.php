@@ -13,10 +13,23 @@ use Illuminate\Support\Facades\Auth;
 
 class EtudiantController extends Controller
 {
-    public function afficher_liste()
+    public function afficher_liste(Request $request)
     {
         $roleEtudiant = Role::where('nom_role', 'Etudiant')->first();
-        $etudiants = Utilisateur::where('role_id', $roleEtudiant->id)->paginate(10); // Ajout de la pagination
+        
+        $query = Utilisateur::where('role_id', $roleEtudiant->id);
+
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nom', 'LIKE', "%{$search}%")
+                ->orWhere('prenom', 'LIKE', "%{$search}%")
+                ->orWhere('email', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $etudiants = $query->paginate(10); // Pagination pour meilleure lisibilité
+
         return view('etudiants.liste', compact('etudiants'));
     }
 
@@ -93,11 +106,13 @@ class EtudiantController extends Controller
 
         return redirect()->route('etudiants.liste')->with('success', 'Étudiant supprimé avec succès.');
     }
+
     public function afficher_profil()
     {
         $etudiant = Auth::user(); // Récupère l'utilisateur connecté
         return view('etudiants.profil', compact('etudiant'));
     }
+
     public function modifier_statut(Request $request)
     {
         // Valider le statut envoyé

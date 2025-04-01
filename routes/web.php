@@ -156,6 +156,8 @@ Route::delete('/etudiants/{id}', [EtudiantController::class, 'supprimer'])
 ->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
 ->name('etudiants.supprimer');
 
+
+
 Route::get('/profil', [EtudiantController::class, 'afficher_profil'])
     ->middleware(['auth', RoleMiddleware::class . ':Etudiant'])
     ->name('profil');
@@ -195,3 +197,8 @@ Route::post('/pilotes/creer', [PiloteController::class, 'store'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Admin'])
 ->name("pilotes.store");
+
+Route::delete('/pilotes/{id}', [EtudiantController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('pilotes.supprimer');

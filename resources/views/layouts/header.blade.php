@@ -9,14 +9,14 @@
 
     <div class="navbar menu" id="main-menu">
         @if(Auth::user()->role->nom_role === 'Admin')
+        <a href="{{ route('offres.liste') }}">Offres</a>
         <a href="{{ route('entreprises.liste') }}">Entreprises</a>
         <a href="{{ route('etudiants.liste') }}">Etudiants</a>
-        <a href="{{ route('offres.liste') }}">Offres</a>
         <a href="{{ route('pilotes.liste') }}">Pilotes</a>
         @elseif(Auth::user()->role->nom_role === 'Pilote')
+        <a href="{{ route('offres.liste') }}">Offres</a>
         <a href="{{ route('entreprises.liste') }}">Entreprises</a>
         <a href="{{ route('etudiants.liste') }}">Etudiants</a>
-        <a href="{{ route('offres.liste') }}">Offres</a>
         @elseif(Auth::user()->role->nom_role === 'Etudiant')
         <a href="{{ route('offres.liste') }}">Offres</a>
         <a href="{{ route('entreprises.liste') }}">Entreprises</a>

@@ -34,7 +34,7 @@
                 @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
                 <a href="{{ route('etudiants.modifier', $etudiant) }}">Modifier</a>
 
-                <form action="{{ route('etudiants.supprimer', $etudiant->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');">
+                <form action="{{ route('etudiants.supprimer', $etudiant->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette étudiant ?');">
                     @csrf
                     @method('DELETE')
                     <button id="supprimer" type="submit" class="btn btn-danger">Supprimer</button>
