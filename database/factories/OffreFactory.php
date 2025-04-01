@@ -18,12 +18,15 @@ class OffreFactory extends Factory
      */
     public function definition(): array
     {
+        $dateDebut = $this->faker->dateTimeBetween('-1 month', '+1 month');
+        $dateFin = $this->faker->optional()->dateTimeBetween($dateDebut, '+6 months');
+        
         return [
             'titre' => $this->faker->jobTitle,
-            'description' => $this->faker->sentence(10),
+            'description' => collect($this->faker->paragraphs(4))->join(' '),
             'salaire' => $this->faker->randomFloat(2, 1500, 5000),
-            'date_debut' => $this->faker->date,
-            'date_fin' => $this->faker->optional()->date,
+            'date_debut' => $dateDebut,
+            'date_fin' => $dateFin,
             'entreprise_id' => Entreprise::factory(),
         ];
     }

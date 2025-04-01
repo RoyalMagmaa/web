@@ -21,7 +21,7 @@
         <p><strong>Numéro SIRET :</strong> 123 456 789 00012</p>
         <p><strong>RCS :</strong> Lyon</p>
         <p><strong>Contact :</strong> <a href="mailto:contact@stageo.com">contact@stageo.com</a> / +33 1 23 45 67 89</p>
-        <p><strong>Directeur de la publication :</strong> Jean Dupont</p>
+        <p><strong>Directeur de la publication :</strong> Jean-Marie Bigard</p>
 
         <h2>2. Hébergeur du site</h2>
         <p><strong>Nom de l'hébergeur :</strong> OVH</p>

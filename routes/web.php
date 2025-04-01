@@ -187,8 +187,3 @@ Route::post('/pilotes/creer', [PiloteController::class, 'store'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Admin'])
 ->name("pilotes.store");
-
-Route::delete('/pilotes/{id}', [PiloteController::class, 'supprimer'])
-->middleware(AuthMiddleware::class)
-->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
-->name('pilotes.supprimer');

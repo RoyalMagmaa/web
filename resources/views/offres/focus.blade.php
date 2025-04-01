@@ -28,6 +28,17 @@
                 <p><strong>Date de fin :</strong> {{ $offre->date_fin }}</p>
             </div>
         </div>
+        @if(Auth::user()->role->nom_role === 'Etudiant')
+        <div class=button-offre>
+            <a href="{{ route('candidatures', ['offre_id' => $offre->id]) }}">Postuler</a>
+        </div>
+        <div class=button-offre>
+            <form action="{{ route('wishlist.ajouter', ['offre_id' => $offre->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary">Ajouter à la wishlist</button>
+            </form>
+        </div>
+        @endif
     </div>
 </div>
 
