@@ -26,6 +26,12 @@
                 <p><strong>Email :</strong> {{ $entreprise->email }}</p>
                 <p><strong>Téléphone :</strong> {{ $entreprise->telephone }}</p>
             </div>
+
+            <div class="section">
+                <h2>Statistiques</h2>
+                <p><strong>Nombre d'offres publiées : </strong> {{ $entreprise->offres_count }}</p>
+                <p><strong>Nombre total de candidatures : </strong> {{ $totalCandidatures }}</p>
+            </div>
         </div>
     </div>
 </div>

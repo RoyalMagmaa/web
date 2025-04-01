@@ -21,11 +21,9 @@
             <a id="boutonCreer" href="{{ route('pilotes.creer') }}">Ajouter un pilote</a>
             @endif
         </div>
-        <form id="login-form" method="post">
-            <input id="input-recherche" placeholder="Rechercher une offre" required type="text">
-            <select name="ville" id="ville-select">
-                <option value="">Toutes les villes</option>
-            </select>
+        <form action="{{ route('Pilotes.liste') }}" id="login-form" method="GET" class="mb-4">
+            <input id="input-recherche" type="text" name="search" placeholder="Rechercher une offre..." value="{{ request()->search ?? '' }}">
+            <button type="submit">Rechercher</button>
         </form>
         @foreach ($pilotes as $pilote)
         <div class="element-liste">

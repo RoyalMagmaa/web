@@ -27,6 +27,10 @@
                 <p><strong>Date de début :</strong> {{ $offre->date_debut }}</p>
                 <p><strong>Date de fin :</strong> {{ $offre->date_fin }}</p>
             </div>
+            <div class="section">
+                <h2>Statistiques</h2>
+                <p><strong>Nombre de candidats : </strong> {{ $offre->candidatures_count }}</p>
+            </div>
         </div>
         @if(Auth::user()->role->nom_role === 'Etudiant')
         <div class=button-offre>
