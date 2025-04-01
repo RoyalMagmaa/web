@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Offre;
 use App\Models\Entreprise;
 use Illuminate\Http\Request;
@@ -8,18 +9,22 @@ use Illuminate\Http\Request;
 
 class OffreController extends Controller
 {
-    public function afficher_liste() {
-        $offres = Offre::with('entreprise')->get(); // Récupérer toutes les offres
+    public function afficher_liste()
+    {
+        $offres = Offre::with('entreprise')->paginate(10); // Récupérer toutes les offres
         return view('offres.liste', compact('offres')); // Envoyer les données à la vue
     }
-    public function afficher($id){
+    public function afficher($id)
+    {
         $offre = Offre::with('entreprise')->findOrFail($id);
         return view('offres.focus', compact('offre'));
     }
-    public function afficher_creer() {
+    public function afficher_creer()
+    {
         return view('offres.creer'); // Envoyer les données à la vue
     }
-    public function afficher_modifier($id) {
+    public function afficher_modifier($id)
+    {
         $offre = Offre::with('entreprise')->findOrFail($id); // Récupérer toutes les offres
         return view('offres.modifier', compact('offre')); // Envoyer les données à la vue
     }
@@ -33,15 +38,15 @@ class OffreController extends Controller
             'date_fin' => 'required|date|after_or_equal:date_debut',
             'entreprise_nom' => 'required|string'
         ]);
-    
+
         // Cherche l'entreprise par son nom
         $entreprise = Entreprise::where('nom', $request->input('entreprise_nom'))->first();
-    
+
         if (!$entreprise) {
             // Redirige avec une erreur si l'entreprise n'existe pas
             return redirect()->back()->withErrors(['entreprise_nom' => 'L’entreprise spécifiée n’existe pas.']);
         }
-    
+
         $offre = Offre::findOrFail($id);
         $offre->titre = $request->input('titre');
         $offre->description = $request->input('description');
@@ -49,7 +54,7 @@ class OffreController extends Controller
         $offre->date_fin = $request->input('date_fin');
         $offre->entreprise_id = $entreprise->id;  // Associe l'offre à l'entreprise trouvée
         $offre->save();
-    
+
         return redirect()->route('offres.liste')->with('success', 'Offre mise à jour avec succès.');
     }
 
@@ -65,10 +70,10 @@ class OffreController extends Controller
             'entreprise_nom' => 'required|string',
             'salaire' => 'required|numeric',
         ]);
-    
+
         // Cherche l'entreprise par son nom
         $entreprise = Entreprise::where('nom', $request->input('entreprise_nom'))->first();
-    
+
         if (!$entreprise) {
             // Redirige avec une erreur si l'entreprise n'existe pas
             return redirect()->back()->withErrors(['entreprise_nom' => 'L’entreprise spécifiée n’existe pas.']);
