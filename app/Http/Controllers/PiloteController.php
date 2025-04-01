@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Utilisateur;
 use App\Models\Role;
 use App\Models\Statut;
@@ -11,25 +12,30 @@ use Illuminate\Support\Facades\Hash;
 
 class PiloteController extends Controller
 {
-    public function afficher_liste() {
+    public function afficher_liste()
+    {
         $rolePilote = Role::where('nom_role', 'Pilote')->first();
-        $pilotes = Utilisateur::where('role_id', $rolePilote->id)->get();
+        $pilotes = Utilisateur::where('role_id', $rolePilote->id)->paginate(10);
         return view('pilotes.liste', compact('pilotes')); // Envoyer les données à la vue
     }
-    public function afficher($id){
+    public function afficher($id)
+    {
         $pilote = Utilisateur::findOrFail($id);
         return view('pilotes.focus', compact('pilote'));
     }
-    public function afficher_creer() {
+    public function afficher_creer()
+    {
         $statuts = Statut::all(); // Récupère tous les statuts de la table statut
         return view('pilotes.creer', compact('statuts'));
     }
-    public function afficher_modifier($id) {
+    public function afficher_modifier($id)
+    {
         $pilote = Utilisateur::findOrFail($id); // Récupérer toutes les pilotes
         return view('pilotes.modifier', compact('pilote')); // Envoyer les données à la vue
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $request->validate([
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
@@ -49,7 +55,8 @@ class PiloteController extends Controller
     }
 
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         // Valider les données
         $request->validate([
             'nom' => 'required|string|max:255',

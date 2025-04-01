@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Utilisateur;
 use App\Models\Role;
 use App\Models\Statut;
@@ -11,25 +12,31 @@ use Illuminate\Support\Facades\Hash;
 
 class EtudiantController extends Controller
 {
-    public function afficher_liste() {
+    public function afficher_liste()
+    {
         $roleEtudiant = Role::where('nom_role', 'Etudiant')->first();
-        $etudiants = Utilisateur::where('role_id', $roleEtudiant->id)->get();
-        return view('etudiants.liste', compact('etudiants')); // Envoyer les données à la vue
+        $etudiants = Utilisateur::where('role_id', $roleEtudiant->id)->paginate(10); // Ajout de la pagination
+        return view('etudiants.liste', compact('etudiants'));
     }
-    public function afficher($id){
+
+    public function afficher($id)
+    {
         $etudiant = Utilisateur::with('statut')->findOrFail($id);
         return view('etudiants.focus', compact('etudiant'));
     }
-    public function afficher_creer() {
+    public function afficher_creer()
+    {
         $statuts = Statut::all(); // Récupère tous les statuts de la table statut
         return view('etudiants.creer', compact('statuts'));
     }
-    public function afficher_modifier($id) {
+    public function afficher_modifier($id)
+    {
         $etudiant = Utilisateur::with('statut')->findOrFail($id); // Récupérer toutes les etudiants
         return view('etudiants.modifier', compact('etudiant')); // Envoyer les données à la vue
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $request->validate([
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
@@ -49,7 +56,8 @@ class EtudiantController extends Controller
     }
 
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         // Valider les données
         $request->validate([
             'nom' => 'required|string|max:255',
@@ -72,7 +80,7 @@ class EtudiantController extends Controller
         // Rediriger avec un message
         return redirect()->route('etudiants.liste')->with('success', 'Étudiant créé avec succès.');
     }
-    
+
     public function supprimer($id)
     {
         $etudiant = Utilisateur::findOrFail($id);
