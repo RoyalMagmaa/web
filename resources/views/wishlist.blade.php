@@ -23,7 +23,7 @@
                         <div>
                             <strong>{{ $item->offre->titre }}</strong> - {{ $item->offre->entreprise->nom }}
                         </div>
-                        <form action="{{ route('wishlist.supprimer', $item->id) }}" method="POST">
+                        <form action="{{ route('wishlist.supprimer', ['id' => $item->offre_id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Retirer de la Wishlist</button>
