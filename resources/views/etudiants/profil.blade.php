@@ -36,7 +36,7 @@
                         <option value="En recherche" {{ $etudiant->statut->nom_statut === 'En recherche' ? 'selected' : '' }}>En recherche</option>
                         <option value="En stage" {{ $etudiant->statut->nom_statut === 'En stage' ? 'selected' : '' }}>En stage</option>
                     </select>
-                    <button type="submit">Mettre à jour</button>
+                    <button id=bouton-maj type="submit">Mettre à jour</button>
                 </form>
             </div>
         </div>

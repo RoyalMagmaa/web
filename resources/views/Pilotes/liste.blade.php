@@ -23,7 +23,7 @@
         </div>
         <form action="{{ route('pilotes.liste') }}" id="login-form" method="GET" class="mb-4">
             <input id="input-recherche" type="text" name="search" placeholder="Rechercher une offre..." value="{{ request()->search ?? '' }}">
-            <button type="submit">Rechercher</button>
+            <button type="submit" id="sub-button">Rechercher</button>
         </form>
         @foreach ($pilotes as $pilote)
         <div class="element-liste">

@@ -35,11 +35,9 @@
         @if(Auth::user()->role->nom_role === 'Etudiant')
         <div class=button-offre>
             <a href="{{ route('candidatures', ['offre_id' => $offre->id]) }}">Postuler</a>
-        </div>
-        <div class=button-offre>
             <form action="{{ route('wishlist.ajouter', ['offre_id' => $offre->id]) }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary">Ajouter à la wishlist</button>
+                <button type="submit" class="bouton-wishlist">Ajouter à la wishlist +</button>
             </form>
         </div>
         @endif

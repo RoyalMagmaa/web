@@ -43,7 +43,7 @@ select {
     margin-bottom: 10px;
 }
 
-button {
+#bouton-maj {
     background-color: #007bff;
     color: white;
     padding: 10px 15px;
@@ -54,7 +54,7 @@ button {
     width: 100%;
 }
 
-button:hover {
+#bouton-maj:hover {
     background-color: #0056b3;
 }
 

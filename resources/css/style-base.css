@@ -86,36 +86,52 @@ header img {
 }
 
 #dropdown-menu {
-    display: none;
+    display: none; /* À activer avec JavaScript */
     position: absolute;
-    top: 50px;
+    top: 60px;
     right: 0;
     background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 200px;
+}
+
+#dropdown-menu a,
+#dropdown-menu button {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
-#dropdown-menu a, #dropdown-menu button {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-    padding: 5px;
-}
-
-#dropdown-menu button {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 5px;
-    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.1s;
     cursor: pointer;
+    border: none;
+}
+
+/* Liens (Profil & Wishlist) */
+#drop-menu-b1{
+    margin-top: 20px;
+    background-color: #34db63;
+    color: white;
+}
+#drop-menu-b2 {
+    margin-top: 40px;
+    background-color: #2980b9;
+    color: white;
+}
+
+/* Bouton de déconnexion */
+#drop-menu-b3 {
+    margin-top: 20px;
+    background-color: #e74c3c;
+    color: white;
 }
 
 #dropdown-menu button:hover {
-    background-color: #d32f2f;
+    background-color: #c0392b;
+    transform: scale(1.02);
 }
 
 #profil-menu img {

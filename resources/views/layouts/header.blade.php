@@ -27,12 +27,12 @@
         <img src="{{ asset('images/utilisateur.png') }}" id="profil-icon" alt="Profil">
         <div id="dropdown-menu">
             @if(Auth::user()->role->nom_role === 'Etudiant')
-                <a href="{{ route('profil') }}">Mon Profil</a>
-                <a href="{{ route('wishlist') }}">Wishlist</a>
+                <a id="drop-menu-b1" href="{{ route('profil') }}">Mon Profil</a>
+                <a id="drop-menu-b2" href="{{ route('wishlist') }}">Wishlist</a>
             @endif
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit">Déconnexion</button>
+                <button id="drop-menu-b3" type="submit">Déconnexion</button>
             </form>
         </div>
     </div>
