@@ -17,7 +17,6 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name("login");
 Route::post('/login', [AuthController::class, 'login'])->name("loginForm");
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
 Route::get('/candidatures/{offre_id}', [CandidatureController::class, 'afficher'])
 ->name('candidatures')
 ->middleware(AuthMiddleware::class)
@@ -188,8 +187,3 @@ Route::post('/pilotes/creer', [PiloteController::class, 'store'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Admin'])
 ->name("pilotes.store");
-
-Route::delete('/pilotes/{id}', [PiloteController::class, 'supprimer'])
-->middleware(AuthMiddleware::class)
-->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
-->name('pilotes.supprimer');
