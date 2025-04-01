@@ -7,21 +7,25 @@ use App\Models\Entreprise;
 
 class EntrepriseController extends Controller
 {
-    public function afficher($id){
+    public function afficher($id)
+    {
         $entreprise = Entreprise::findOrFail($id);
         return view('entreprises.focus', compact('entreprise'));
     }
 
-    public function afficher_liste() {
-        $entreprises = Entreprise::all(); // Récupérer toutes les entreprises
+    public function afficher_liste()
+    {
+        $entreprises = Entreprise::paginate(10); // Récupérer toutes les entreprises
         return view('entreprises.liste', compact('entreprises')); // Envoyer les données à la vue
     }
 
-    public function afficher_creer() {
+    public function afficher_creer()
+    {
         return view('entreprises.creer'); // Envoyer les données à la vue
     }
 
-    public function afficher_modifier($id) {
+    public function afficher_modifier($id)
+    {
         $entreprise = Entreprise::findOrFail($id); // Récupérer toutes les entreprises
         return view('entreprises.modifier', compact('entreprise')); // Envoyer les données à la vue
     }
