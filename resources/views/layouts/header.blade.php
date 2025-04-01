@@ -27,6 +27,7 @@
         <img src="{{ asset('images/utilisateur.png') }}" id="profil-icon" alt="Profil">
         <div id="dropdown-menu">
             @if(Auth::user()->role->nom_role === 'Etudiant')
+                <a href="{{ route('profil') }}">Mon Profil</a>
                 <a href="{{ route('wishlist') }}">Wishlist</a>
             @endif
             <form action="{{ route('logout') }}" method="POST">
