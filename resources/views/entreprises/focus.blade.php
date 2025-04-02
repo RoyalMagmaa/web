@@ -2,11 +2,13 @@
 
 @section('titre','Entreprise')
 
-@section('styles') 
-    @vite('resources/css/style-focus.css')
+@section('styles')
+@vite('resources/css/style-focus.css')
+@vite('resources/js/rating.js')
 @endsection
 
 @section('main')
+
 
 <div class="container">
     <div class="focus-entreprise">
@@ -26,6 +28,20 @@
                 <p><strong>Email :</strong> {{ $entreprise->email }}</p>
                 <p><strong>Téléphone :</strong> {{ $entreprise->telephone }}</p>
             </div>
+            <div class="section">
+                <h2>Évaluer cette entreprise</h2>
+                <div class="rating">
+                    <span class="star" data-index="1">&#9733;</span>
+                    <span class="star" data-index="2">&#9733;</span>
+                    <span class="star" data-index="3">&#9733;</span>
+                    <span class="star" data-index="4">&#9733;</span>
+                    <span class="star" data-index="5">&#9733;</span>
+                </div>
+                <p id="votre-note">Votre note : 0/5</p>
+
+                <button id="submit-rating">Valider</button>
+            </div>
+
 
             <div class="section">
                 <h2>Statistiques</h2>
@@ -45,5 +61,6 @@
         @endif
     </div>
 </div>
+
 
 @endsection
