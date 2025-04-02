@@ -87,7 +87,6 @@
     color: #1f2937;
 }
 
-<<<<<<< HEAD
 .star {
     font-size: 2rem;
     cursor: pointer;
@@ -116,7 +115,6 @@ button#submit-rating {
 button#submit-rating:hover {
     background-color: #0056b3;
 }
-=======
 .button-offre{
     display:flex;
     justify-content: left;
@@ -148,4 +146,3 @@ button#submit-rating:hover {
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
->>>>>>> e95c68b2847c2c5492a8efc635acfac1df596f8d

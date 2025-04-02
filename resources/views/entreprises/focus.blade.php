@@ -28,7 +28,6 @@
                 <p><strong>Email :</strong> {{ $entreprise->email }}</p>
                 <p><strong>Téléphone :</strong> {{ $entreprise->telephone }}</p>
             </div>
-<<<<<<< HEAD
             <div class="section">
                 <h2>Évaluer cette entreprise</h2>
                 <div class="rating">
@@ -43,14 +42,12 @@
                 <button id="submit-rating">Valider</button>
             </div>
 
-=======
 
             <div class="section">
                 <h2>Statistiques</h2>
                 <p><strong>Nombre d'offres publiées : </strong> {{ $entreprise->offres_count }}</p>
                 <p><strong>Nombre total de candidatures : </strong> {{ $totalCandidatures }}</p>
             </div>
->>>>>>> e95c68b2847c2c5492a8efc635acfac1df596f8d
         </div>
     </div>
 </div>
