@@ -25,9 +25,9 @@
         <p><strong>Directeur de la publication :</strong> Jean-Marie Bigard</p>
 
         <h2>2. Hébergeur du site</h2>
-        <p><strong>Nom de l'hébergeur :</strong> OVH</p>
-        <p><strong>Adresse :</strong> 2 Rue Kellermann, 59100 Roubaix, France</p>
-        <p><strong>Contact :</strong> <a href="mailto:support@ovh.com">support@ovh.com</a> / +33 9 72 10 10 07</p>
+        <p><strong>Nom de l'hébergeur :</strong> Microsoft Azure</p>
+        <p><strong>Adresse :</strong> Microsoft Corporation, One Microsoft Way, Redmond, WA 98052-6399, USA</p>
+        <p><strong>Contact :</strong> <a href="mailto:azuresupport@microsoft.com">azuresupport@microsoft.com</a> / +1 800 642 7676</p>
 
         <h2>3. Propriété intellectuelle</h2>
         <p>L'ensemble des contenus présents sur ce site (textes, images, logos, etc.) sont protégés par le droit d'auteur
