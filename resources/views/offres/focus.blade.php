@@ -40,6 +40,15 @@
                 <button type="submit" class="bouton-wishlist">Ajouter à la wishlist +</button>
             </form>
         </div>
+        @elseif(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+        <div class="button-offre">
+            <a href="{{ route('offres.modifier', $offre) }}">Modifier</a>
+            <form action="{{ route('offres.supprimer', $offre->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette offre ?');">
+                @csrf
+                @method('DELETE')
+                <button id="supprimer" type="submit">Supprimer</button>
+            </form>
+        </div>
         @endif
     </div>
 </div>

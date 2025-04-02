@@ -20,9 +20,11 @@
                 <li>
                     <!-- Accède à l'offre liée -->
                     @if($item->offre)
+                    
                         <div>
                             <strong>{{ $item->offre->titre }}</strong> - {{ $item->offre->entreprise->nom }}
                         </div>
+                        <a id="bouton-consulter" href="{{ route('offres.focus', ['id' => $item->offre_id]) }}">Consulter</a>
                         <form id="form-suppr" action="{{ route('wishlist.supprimer', ['id' => $item->offre_id]) }}" method="POST">
                             @csrf
                             @method('DELETE')

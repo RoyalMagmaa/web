@@ -29,6 +29,7 @@
             @if(Auth::user()->role->nom_role === 'Etudiant')
                 <a id="drop-menu-b1" href="{{ route('profil') }}">Mon Profil</a>
                 <a id="drop-menu-b2" href="{{ route('wishlist') }}">Wishlist</a>
+                <a id="drop-menu-b2" href="{{ route('candidatures.liste') }}">Candidatures</a>
             @endif
             <form action="{{ route('logout') }}" method="POST">
                 @csrf

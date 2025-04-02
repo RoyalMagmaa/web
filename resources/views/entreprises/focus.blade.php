@@ -33,6 +33,16 @@
                 <p><strong>Nombre total de candidatures : </strong> {{ $totalCandidatures }}</p>
             </div>
         </div>
+        @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+        <div class="button-offre">
+            <a href="{{ route('entreprises.modifier', $entreprise) }}">Modifier</a>
+            <form action="{{ route('entreprises.supprimer', $entreprise->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');">
+                @csrf
+                @method('DELETE')
+                <button id="supprimer" type="submit">Supprimer</button>
+            </form>
+        </div>
+        @endif
     </div>
 </div>
 
