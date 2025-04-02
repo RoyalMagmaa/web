@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownMenu = document.getElementById('dropdown-menu');
 
     profilIcon.addEventListener('click', function () {
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
     document.addEventListener('click', function (event) {

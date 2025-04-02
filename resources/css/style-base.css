@@ -96,6 +96,7 @@ header img {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     z-index: 10;
     width: 200px;
+    flex-direction: column;
 }
 
 #dropdown-menu a,
@@ -112,19 +113,19 @@ header img {
 
 /* Liens (Profil & Wishlist) */
 #drop-menu-b1{
-    margin-top: 20px;
-    background-color: #34db63;
+    margin-top: 10px;
+    background-color: #2980b9;
     color: white;
 }
 #drop-menu-b2 {
-    margin-top: 40px;
+    margin-top: 10px;
     background-color: #2980b9;
     color: white;
 }
 
 /* Bouton de déconnexion */
 #drop-menu-b3 {
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: #e74c3c;
     color: white;
 }

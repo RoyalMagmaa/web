@@ -30,7 +30,7 @@
 
             <div class="section">
                 <h2>Modifier mon statut</h2>
-                <form action="{{ route('profil.modifier_statut') }}" method="POST">
+                <form id="form-modif" action="{{ route('profil.modifier_statut') }}" method="POST">
                     @csrf
                     <select name="statut" id="statut">
                         <option value="En recherche" {{ $etudiant->statut->nom_statut === 'En recherche' ? 'selected' : '' }}>En recherche</option>
