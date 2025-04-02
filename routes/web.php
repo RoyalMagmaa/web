@@ -17,6 +17,8 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name("login");
 Route::post('/login', [AuthController::class, 'login'])->name("loginForm");
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+
 Route::get('/candidatures/{offre_id}', [CandidatureController::class, 'afficher'])
 ->name('candidatures')
 ->middleware(AuthMiddleware::class)
@@ -26,6 +28,13 @@ Route::post('/candidatures/{offre_id}', [CandidatureController::class, 'store'])
 ->name('candidatures.store')
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+Route::get('/candidatures/liste', [CandidatureController::class, 'afficher_liste'])
+->name('candidatures.liste')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+
 
 
 
