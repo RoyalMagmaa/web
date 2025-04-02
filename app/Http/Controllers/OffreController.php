@@ -9,14 +9,23 @@ use Illuminate\Http\Request;
 
 class OffreController extends Controller
 {
-    public function afficher_liste()
+    public function afficher_liste(Request $request)
     {
-        $offres = Offre::with('entreprise')->paginate(10); // Récupérer toutes les offres
+        $query = Offre::query();
+
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where('titre', 'LIKE', "%{$search}%")
+                  ->orWhere('description', 'LIKE', "%{$search}%");
+        }
+    
+        $offres = $query->paginate(10); // Pagination pour une meilleure lisibilité
         return view('offres.liste', compact('offres')); // Envoyer les données à la vue
     }
+
     public function afficher($id)
     {
-        $offre = Offre::with('entreprise')->findOrFail($id);
+        $offre = Offre::with(['entreprise'])->withCount('candidatures')->findOrFail($id);
         return view('offres.focus', compact('offre'));
     }
     public function afficher_creer()
@@ -92,6 +101,7 @@ class OffreController extends Controller
         // Rediriger avec un message
         return redirect()->route('offres.liste')->with('success', 'Offre créée avec succès.');
     }
+
     public function supprimer($id)
     {
         $offre = Offre::findOrFail($id);

@@ -16,12 +16,8 @@
 
         <div class="content">
             <div class="section">
-                <h2>Identifiants</h2>
+                <h2>Identifiant</h2>
                 <p>{{ $pilote->email }}</p>
-            </div>
-
-            <div class="section">
-                <h2>Statistiques</h2>
             </div>
         </div>
     </div>

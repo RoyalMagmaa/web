@@ -26,13 +26,12 @@
     padding-left: 1em;
     font-size: 1rem;
 }
-
-#ville-select {
-    width: 12em;
-    height: 3em;
-    border-radius: 5px;
-    padding-left: 1em;
-    font-size: 1rem;
+#sub-button{
+    background-color: #17255a;
+    color: white;
+    border-radius: 0.5rem;
+    padding:0.7rem;
+    font-size:1.2rem;
 }
 
 #titre-offre {

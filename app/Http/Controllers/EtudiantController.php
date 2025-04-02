@@ -8,22 +8,40 @@ use App\Models\Statut;
 use App\Models\Entreprise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class EtudiantController extends Controller
 {
-    public function afficher_liste()
+    public function afficher_liste(Request $request)
     {
         $roleEtudiant = Role::where('nom_role', 'Etudiant')->first();
-        $etudiants = Utilisateur::where('role_id', $roleEtudiant->id)->paginate(10); // Ajout de la pagination
+        
+        $query = Utilisateur::where('role_id', $roleEtudiant->id);
+
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nom', 'LIKE', "%{$search}%")
+                ->orWhere('prenom', 'LIKE', "%{$search}%")
+                ->orWhere('email', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $etudiants = $query->paginate(10); // Pagination pour meilleure lisibilité
+
         return view('etudiants.liste', compact('etudiants'));
     }
 
     public function afficher($id)
     {
-        $etudiant = Utilisateur::with('statut')->findOrFail($id);
+        $etudiant = Utilisateur::with(['statut'])
+            ->withCount(['candidatures', 'wishlist'])
+            ->findOrFail($id);
+
         return view('etudiants.focus', compact('etudiant'));
     }
+
     public function afficher_creer()
     {
         $statuts = Statut::all(); // Récupère tous les statuts de la table statut
@@ -87,5 +105,34 @@ class EtudiantController extends Controller
         $etudiant->delete();
 
         return redirect()->route('etudiants.liste')->with('success', 'Étudiant supprimé avec succès.');
+    }
+
+    public function afficher_profil()
+    {
+        $etudiant = Auth::user(); // Récupère l'utilisateur connecté
+        return view('etudiants.profil', compact('etudiant'));
+    }
+
+    public function modifier_statut(Request $request)
+    {
+        // Valider le statut envoyé
+        $request->validate([
+            'statut' => 'required|string|in:En recherche,En stage',
+        ]);
+    
+        // Récupérer l'utilisateur connecté
+        $etudiant = Auth::user();
+    
+        // Récupérer l'ID du statut correspondant dans la table `statuts`
+        $statut = Statut::where('nom_statut', $request->statut)->first();
+    
+        if ($statut) {
+            // Mettre à jour la clé étrangère `statut_id` dans la table `utilisateurs`
+            $etudiant->statut_id = $statut->id;
+            $etudiant->save();
+        }
+    
+        // Rediriger avec un message de succès
+        return redirect()->route('profil')->with('success', 'Statut mis à jour avec succès.');
     }
 }

@@ -10,22 +10,20 @@
 
 <div class="main-section">
     <div class="header-section" style="background-image: url({{asset('images/backgroundOffre.png')}})">
-        <h1 id="titre-offre">Liste des etudiants</h1>
+        <h1 id="titre-offre">Liste des étudiants</h1>
     </div>
     <div class="sub-section">
         <div class="haut-liste">
             <div>
-                <h2>Liste des etudiants</h2>
+                <h2>Liste des étudiants</h2>
             </div>
             @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
-            <a id="boutonCreer" href="{{ route('etudiants.creer') }}">Ajouter un etudiant</a>
+            <a id="boutonCreer" href="{{ route('etudiants.creer') }}">Ajouter un étudiant</a>
             @endif
         </div>
-        <form id="login-form" method="post">
-            <input id="input-recherche" placeholder="Rechercher une offre" required type="text">
-            <select name="ville" id="ville-select">
-                <option value="">Toutes les villes</option>
-            </select>
+        <form action="{{ route('etudiants.liste') }}" id="login-form" method="GET" class="mb-4">
+            <input id="input-recherche" type="text" name="search" placeholder="Rechercher une offre..." value="{{ request()->search ?? '' }}">
+            <button type="submit" id="sub-button">Rechercher</button>
         </form>
         @foreach ($etudiants as $etudiant)
         <div class="element-liste">
@@ -36,7 +34,7 @@
                 @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
                 <a href="{{ route('etudiants.modifier', $etudiant) }}">Modifier</a>
 
-                <form action="{{ route('etudiants.supprimer', $etudiant->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');">
+                <form action="{{ route('etudiants.supprimer', $etudiant->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette étudiant ?');">
                     @csrf
                     @method('DELETE')
                     <button id="supprimer" type="submit" class="btn btn-danger">Supprimer</button>

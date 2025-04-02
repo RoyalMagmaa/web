@@ -87,6 +87,7 @@
     color: #1f2937;
 }
 
+<<<<<<< HEAD
 .star {
     font-size: 2rem;
     cursor: pointer;
@@ -115,3 +116,36 @@ button#submit-rating {
 button#submit-rating:hover {
     background-color: #0056b3;
 }
+=======
+.button-offre{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.button-offre a {
+    font-size: 1.1rem;
+    padding: 0.7rem;
+    margin-right: 1rem;
+    background-color: #17255a;
+    border-radius: 0.3rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button-offre a:hover {
+    background-color: #1e40af;
+}
+
+.bouton-wishlist {
+    border:0;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+    background-color: #45a049;
+    border-radius: 0.3rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+>>>>>>> e95c68b2847c2c5492a8efc635acfac1df596f8d
