@@ -24,7 +24,6 @@ class EntrepriseFactory extends Factory
             'description' => collect($this->faker->paragraphs(3))->join(' '),
             'email' => $this->faker->companyEmail,
             'telephone' => $this->faker->phoneNumber,
-            'evaluation' => $this->faker->randomFloat(2, 0, 5),
         ];
     }
 }

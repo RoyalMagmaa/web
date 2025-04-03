@@ -35,7 +35,6 @@ return new class extends Migration
             $table->text('description');
             $table->string('email', 50);
             $table->string('telephone', 50);
-            $table->decimal('evaluation', 15, 2)->nullable();
             $table->timestamps();
         });
 

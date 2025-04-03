@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Evaluer extends Pivot
+class Evaluer extends Model
 {
     use HasFactory;
     
     protected $table = 'evaluer';
 
-    protected $fillable = ['note'];
+    protected $fillable = ['utilisateur_id', 'entreprise_id', 'note'];
 
     public $timestamps = false;
 }

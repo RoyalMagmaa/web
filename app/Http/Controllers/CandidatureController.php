@@ -10,15 +10,20 @@ class CandidatureController extends Controller
 {
     public function afficher_liste()
     {
-        $utilisateur_id = Auth::id();
-        $candidatures = Candidature::with('offre')->where('utilisateur_id', $utilisateur_id)->get();
+        // Récupère l'utilisateur connecté
+        $utilisateurId = Auth::id();
+
+        // Récupère toutes les candidatures de cet utilisateur avec leurs relations utilisateur et offre
+        $candidatures = Candidature::with(['utilisateur', 'offre'])
+                                ->where('utilisateur_id', $utilisateurId)
+                                ->get();
         return view('candidatures.liste', compact('candidatures'));
     }
 
     public function afficher($offre_id)
     {
         $offre = Offre::findOrFail($offre_id);
-        return view('candidature', compact('offre'));
+        return view('candidatures.candidature', compact('offre'));
     }
 
     public function store(Request $request, $offre_id)

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entreprise;
+use App\Models\Evaluer;
+use Illuminate\Support\Facades\Auth;
 
 class EntrepriseController extends Controller
 {
@@ -18,7 +20,10 @@ class EntrepriseController extends Controller
         // Calcul du nombre total de candidatures sur toutes les offres de l'entreprise
         $totalCandidatures = $entreprise->offres->sum('candidatures_count');
 
-        return view('entreprises.focus', compact('entreprise', 'totalCandidatures'));
+        $moyenneNote = Evaluer::where('entreprise_id', $id)->avg('note');
+        $moyenneNote = $moyenneNote ? round($moyenneNote, 2) : 'Aucune note';
+    
+        return view('entreprises.focus', compact('entreprise', 'totalCandidatures', 'moyenneNote'));
     }
 
     public function afficher_liste(Request $request)
@@ -82,4 +87,34 @@ class EntrepriseController extends Controller
 
         return redirect()->route('entreprises.liste')->with('success', 'Entreprise supprimée avec succès.');
     }
+
+
+    public function evaluer(Request $request, $id)
+    {
+        $request->validate([
+            'note' => 'required|integer|min:1|max:5',
+        ]);
+
+        $utilisateurId = Auth::id();
+
+        // Vérifie si l'utilisateur a déjà évalué cette entreprise
+        $evaluationExistante = Evaluer::where('utilisateur_id', $utilisateurId)
+                                         ->where('entreprise_id', $id)
+                                         ->first();
+
+        if ($evaluationExistante) {
+            $evaluationExistante->note = $request->note;
+            $evaluationExistante->save();
+        } else {
+            Evaluer::create([
+                'utilisateur_id' => $utilisateurId,
+                'entreprise_id' => $id,
+                'note' => $request->note,
+            ]);
+        }
+
+        return response()->json(['message' => 'Évaluation enregistrée avec succès !']);
+    }
 }
+
+        

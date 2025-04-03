@@ -28,5 +28,21 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Veuillez sélectionner une note avant de valider !");
             return;
         }
+
+        console.log(`Note envoyée : ${selectedRating}, entrepriseId : ${entrepriseId}`);
+
+        fetch(`/stageo/public/entreprises/liste/${entrepriseId}/evaluer`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ note: selectedRating })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+        })
+        .catch(error => console.error('Erreur:', error));
     });
 });

@@ -45,7 +45,8 @@ class OffreController extends Controller
             'description' => 'required|string',
             'date_debut' => 'required|date',
             'date_fin' => 'required|date|after_or_equal:date_debut',
-            'entreprise_nom' => 'required|string'
+            'entreprise_nom' => 'required|string',
+            'salaire' => 'required|numeric'
         ]);
 
         // Cherche l'entreprise par son nom
@@ -61,6 +62,7 @@ class OffreController extends Controller
         $offre->description = $request->input('description');
         $offre->date_debut = $request->input('date_debut');
         $offre->date_fin = $request->input('date_fin');
+        $offre->salaire = $request->input('salaire');
         $offre->entreprise_id = $entreprise->id;  // Associe l'offre à l'entreprise trouvée
         $offre->save();
 
