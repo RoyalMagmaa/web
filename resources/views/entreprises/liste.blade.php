@@ -45,4 +45,4 @@
             {{ $entreprises->links() }}
         </div>
     </div>
-    @endsection
+@endsection

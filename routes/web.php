@@ -29,12 +29,10 @@ Route::post('/candidatures/{offre_id}', [CandidatureController::class, 'store'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
 
-Route::get('/candidatures/liste', [CandidatureController::class, 'afficher_liste'])
+Route::get('/candidatures.liste', [CandidatureController::class, 'afficher_liste'])
 ->name('candidatures.liste')
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
-
-
 
 
 
@@ -55,15 +53,21 @@ Route::get('/wishlist', [WishlistController::class, 'afficher'])
 
 
 
-Route::view('/mentionsLegales', 'mentionsLegales')->name('mentionsLegales');
-Route::view('/politique-confidentialite', 'politiqueConfidentialite')->name('politique.confidentialite');
-Route::view('/politique-cookies', 'politiqueCookies')->name('politique.cookies');
+Route::view('/mentionsLegales', 'mentionsLegales')
+    ->name('mentionsLegales')
+    ->middleware(AuthMiddleware::class);
+Route::view('/politique-confidentialite', 'politiqueConfidentialite')
+    ->name('politique.confidentialite')
+    ->middleware(AuthMiddleware::class);
+Route::view('/politique-cookies', 'politiqueCookies')
+    ->name('politique.cookies')
+    ->middleware(AuthMiddleware::class);
 
 
 
 Route::get('/offres/liste', [OffreController::class, 'afficher_liste'])
-->middleware(AuthMiddleware::class)
-->name('offres.liste');
+    ->middleware(AuthMiddleware::class)
+    ->name('offres.liste');
 
 Route::get('/offres/liste/{id}', [OffreController::class, 'afficher'])
     ->middleware(AuthMiddleware::class)
@@ -85,14 +89,14 @@ Route::put('/offres/modifier/{id}', [OffreController::class, 'update'])
     ->name("offres.update");
 
 Route::post('/offres/creer', [OffreController::class, 'store'])
-->middleware(AuthMiddleware::class)
-->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
-->name("offres.store");
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+    ->name("offres.store");
 
 Route::delete('/offres/{id}', [OffreController::class, 'supprimer'])
-->middleware(AuthMiddleware::class)
-->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
-->name('offres.supprimer');
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+    ->name('offres.supprimer');
 
 
 
@@ -124,9 +128,13 @@ Route::get('/entreprises/liste/{id}', [EntrepriseController::class, 'afficher'])
     ->name('entreprises.focus');
 
 Route::delete('/entreprises/{id}', [EntrepriseController::class, 'supprimer'])
-->middleware(AuthMiddleware::class)
-->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
-->name('entreprises.supprimer');
+    ->middleware(AuthMiddleware::class)
+    ->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+    ->name('entreprises.supprimer');
+
+Route::post('/entreprises/liste/{id}/evaluer', [EntrepriseController::class, 'evaluer'])
+    ->name('entreprises.evaluer')
+    ->middleware(['auth', RoleMiddleware::class.':Etudiant']);
 
 
 

@@ -1,4 +1,6 @@
-@section('titre','wishlist')
+@extends('layouts.app')
+
+@section('titre','liste des candidatures')
 
 @section('styles') 
     @vite('resources/css/style-wishlist.css')
@@ -7,7 +9,7 @@
 <!-- resources/views/wishlist.blade.php -->
 @section('main')
 <div class="container">
-    <h1>Ma Wishlist</h1>
+    <h1>Mes candidatures</h1>
 
     @if($candidatures->isEmpty())
         <p>Aucune offre dans votre wishlist.</p>
