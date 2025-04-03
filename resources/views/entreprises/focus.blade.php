@@ -11,10 +11,10 @@
 
 
 <div class="container">
-    <div class="focus-entreprise">
+    <div class="focus-entreprise" data-entreprise-id="{{ $entreprise->id }}"> 
         <div class="header">
             <h1>{{ $entreprise->nom }}</h1>
-            <p class="evaluation">⭐ {{ $entreprise->evaluation }} / 5</p>
+            <p class="evaluation">⭐ {{ $moyenneNote }} / 5</p>
         </div>
 
         <div class="content">

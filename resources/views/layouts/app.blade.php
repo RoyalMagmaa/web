@@ -7,6 +7,7 @@
     @vite('resources/js/app.js')
     @yield('styles') {{-- Styles spécifiques à chaque page --}}
     <meta name="theme-color" content="#18206F">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <header>

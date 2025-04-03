@@ -14,15 +14,20 @@
         @method('PUT')
     
         <input type="text" name="titre" value="{{ $offre->titre }}" required>
-        <textarea name="description" required>{{ $offre->description }}</textarea>
+        <input type="text" name="description" value="{{ $offre->description }}" required>
         <input type="date" name="date_debut" value="{{ $offre->date_debut }}" required>
         <input type="date" name="date_fin" value="{{ $offre->date_fin }}" required>
-        
-        <label for="entreprise">Entreprise :</label>
         <input type="text" name="entreprise_nom" value="{{ $offre->entreprise->nom ?? '' }}" required>
-        <input type="number" name="salaire" value="{{ $offre->titre }}" required>
+        <input type="number" name="salaire" value="{{ $offre->salaire }}" required>
     
         <button type="submit">Mettre à jour</button>
+        @if ($errors->any())
+            <div>
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
     </form>
 </div>
 @endsection
