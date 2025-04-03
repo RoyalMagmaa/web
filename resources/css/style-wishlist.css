@@ -45,11 +45,10 @@ li strong {
     font-size: 1.1rem;
 }
 
-form {
+#form-suppr {
     margin-left: 1rem;
 }
-
-button {
+button, #bouton-consulter {
     padding: 0.5rem 1rem;
     background-color: #bf0909;
     color: white;
@@ -57,4 +56,7 @@ button {
     border-radius: 0.3rem;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+#bouton-consulter{
+    background-color: #343a40;
 }

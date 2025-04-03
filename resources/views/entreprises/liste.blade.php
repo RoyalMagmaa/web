@@ -21,11 +21,9 @@
             <a id="boutonCreer" href="{{ route('entreprises.creer') }}">Ajouter une entreprise</a>
             @endif
         </div>
-        <form id="login-form" method="post">
-            <input id="input-recherche" placeholder="Rechercher une offre" required type="text">
-            <select name="ville" id="ville-select">
-                <option value="">Toutes les villes</option>
-            </select>
+        <form action="{{ route('entreprises.liste') }}" id="login-form" method="GET" class="mb-4">
+            <input id="input-recherche" type="text" name="search" placeholder="Rechercher une offre..." value="{{ request()->search ?? '' }}">
+            <button type="submit" id="sub-button">Rechercher</button>
         </form>
         @foreach ($entreprises as $entreprise)
         <div class="element-liste">

@@ -17,6 +17,8 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name("login");
 Route::post('/login', [AuthController::class, 'login'])->name("loginForm");
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+
 Route::get('/candidatures/{offre_id}', [CandidatureController::class, 'afficher'])
 ->name('candidatures')
 ->middleware(AuthMiddleware::class)
@@ -26,6 +28,13 @@ Route::post('/candidatures/{offre_id}', [CandidatureController::class, 'store'])
 ->name('candidatures.store')
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+Route::get('/candidatures/liste', [CandidatureController::class, 'afficher_liste'])
+->name('candidatures.liste')
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Etudiant|Admin']);
+
+
 
 
 
@@ -46,9 +55,9 @@ Route::get('/wishlist', [WishlistController::class, 'afficher'])
 
 
 
-Route::get('/mentionsLegales', function () {
-    return view('mentionsLegales');
-})->name("mentionsLegales");
+Route::view('/mentionsLegales', 'mentionsLegales')->name('mentionsLegales');
+Route::view('/politique-confidentialite', 'politiqueConfidentialite')->name('politique.confidentialite');
+Route::view('/politique-cookies', 'politiqueCookies')->name('politique.cookies');
 
 
 
@@ -158,6 +167,16 @@ Route::delete('/etudiants/{id}', [EtudiantController::class, 'supprimer'])
 
 
 
+Route::get('/profil', [EtudiantController::class, 'afficher_profil'])
+    ->middleware(['auth', RoleMiddleware::class . ':Etudiant'])
+    ->name('profil');
+
+Route::post('/profil/modifier-statut', [EtudiantController::class, 'modifier_statut'])
+    ->middleware(['auth'])
+    ->name('profil.modifier_statut');
+
+
+
 Route::get('/pilotes/liste', [PiloteController::class, 'afficher_liste'])
     ->middleware(AuthMiddleware::class)
     ->middleware(['auth', RoleMiddleware::class . ':Admin'])
@@ -187,3 +206,8 @@ Route::post('/pilotes/creer', [PiloteController::class, 'store'])
 ->middleware(AuthMiddleware::class)
 ->middleware(['auth', RoleMiddleware::class.':Admin'])
 ->name("pilotes.store");
+
+Route::delete('/pilotes/{id}', [EtudiantController::class, 'supprimer'])
+->middleware(AuthMiddleware::class)
+->middleware(['auth', RoleMiddleware::class.':Pilote|Admin'])
+->name('pilotes.supprimer');

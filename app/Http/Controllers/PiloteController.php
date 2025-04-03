@@ -12,12 +12,27 @@ use Illuminate\Support\Facades\Hash;
 
 class PiloteController extends Controller
 {
-    public function afficher_liste()
+    public function afficher_liste(Request $request)
     {
         $rolePilote = Role::where('nom_role', 'Pilote')->first();
-        $pilotes = Utilisateur::where('role_id', $rolePilote->id)->paginate(10);
-        return view('pilotes.liste', compact('pilotes')); // Envoyer les données à la vue
+        
+        $query = Utilisateur::where('role_id', $rolePilote->id);
+
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nom', 'LIKE', "%{$search}%")
+                ->orWhere('prenom', 'LIKE', "%{$search}%")
+                ->orWhere('email', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $pilotes = $query->paginate(10); // Pagination pour meilleure lisibilité
+
+        return view('pilotes.liste', compact('pilotes'));
     }
+
+    
     public function afficher($id)
     {
         $pilote = Utilisateur::findOrFail($id);

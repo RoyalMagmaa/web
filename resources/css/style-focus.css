@@ -1,8 +1,6 @@
-
-
 .container {
     background-color: #f3f4f6;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     padding: 40px;
@@ -87,4 +85,85 @@
 
 .content .section p strong {
     color: #1f2937;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: gray; /* Couleur de base des étoiles */
+    transition: color 0.2s ease-in-out; /* Transition pour l'effet de survol */
+}
+
+.star.active {
+    color: gold; /* Couleur active */
+}
+
+.star.hover {
+    color: gold; /* Couleur au survol */
+}
+
+button#submit-rating {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button#submit-rating:hover {
+    background-color: #0056b3;
+}
+.button-offre{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.button-offre a {
+    font-size: 1.1rem;
+    padding: 0.7rem;
+    margin-right: 1rem;
+    background-color: #17255a;
+    border-radius: 0.3rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button-offre a:hover {
+    background-color: #1e40af;
+}
+
+.bouton-wishlist {
+    border:0;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+    background-color: #45a049;
+    border-radius: 0.3rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#supprimer {
+    padding: 0.5rem;
+    color: white;
+    margin-right: 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+    background-color: #bf0909;
+    border: 2px solid #bf0909;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#supprimer:hover {
+    color: #bf0909;
+    background-color: white;
+}
+
+#supprimer:active {
+    transform: scale(0.97);
 }

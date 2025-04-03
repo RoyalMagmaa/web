@@ -16,7 +16,6 @@
     <main>
         @yield('main')
     </main>
-
     <footer>
         @include('layouts.footer')
     </footer>

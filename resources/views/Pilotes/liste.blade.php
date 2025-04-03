@@ -21,11 +21,9 @@
             <a id="boutonCreer" href="{{ route('pilotes.creer') }}">Ajouter un pilote</a>
             @endif
         </div>
-        <form id="login-form" method="post">
-            <input id="input-recherche" placeholder="Rechercher une offre" required type="text">
-            <select name="ville" id="ville-select">
-                <option value="">Toutes les villes</option>
-            </select>
+        <form action="{{ route('pilotes.liste') }}" id="login-form" method="GET" class="mb-4">
+            <input id="input-recherche" type="text" name="search" placeholder="Rechercher une offre..." value="{{ request()->search ?? '' }}">
+            <button type="submit" id="sub-button">Rechercher</button>
         </form>
         @foreach ($pilotes as $pilote)
         <div class="element-liste">
@@ -34,7 +32,7 @@
                 <a href="{{ route('pilotes.focus', ['id' => $pilote->id]) }}">Consulter</a>
                 @if(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
                 <a href="{{ route('pilotes.modifier', $pilote) }}">Modifier</a>
-                <form action="{{ route('pilotes.supprimer', $pilote->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');">
+                <form action="{{ route('pilotes.supprimer', $pilote->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce Pilote ?');">
                     @csrf
                     @method('DELETE')
                     <button id="supprimer" type="submit" class="btn btn-danger">Supprimer</button>

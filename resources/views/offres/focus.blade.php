@@ -27,15 +27,26 @@
                 <p><strong>Date de début :</strong> {{ $offre->date_debut }}</p>
                 <p><strong>Date de fin :</strong> {{ $offre->date_fin }}</p>
             </div>
+            <div class="section">
+                <h2>Statistiques</h2>
+                <p><strong>Nombre de candidats : </strong> {{ $offre->candidatures_count }}</p>
+            </div>
         </div>
         @if(Auth::user()->role->nom_role === 'Etudiant')
         <div class=button-offre>
             <a href="{{ route('candidatures', ['offre_id' => $offre->id]) }}">Postuler</a>
-        </div>
-        <div class=button-offre>
             <form action="{{ route('wishlist.ajouter', ['offre_id' => $offre->id]) }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary">Ajouter à la wishlist</button>
+                <button type="submit" class="bouton-wishlist">Ajouter à la wishlist +</button>
+            </form>
+        </div>
+        @elseif(Auth::user()->role->nom_role === 'Admin' || Auth::user()->role->nom_role === 'Pilote')
+        <div class="button-offre">
+            <a href="{{ route('offres.modifier', $offre) }}">Modifier</a>
+            <form action="{{ route('offres.supprimer', $offre->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette offre ?');">
+                @csrf
+                @method('DELETE')
+                <button id="supprimer" type="submit">Supprimer</button>
             </form>
         </div>
         @endif

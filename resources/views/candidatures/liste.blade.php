@@ -1,6 +1,3 @@
-
-@extends('layouts.app')
-
 @section('titre','wishlist')
 
 @section('styles') 
@@ -9,14 +6,14 @@
 
 <!-- resources/views/wishlist.blade.php -->
 @section('main')
-<div class=container>
+<div class="container">
     <h1>Ma Wishlist</h1>
 
-    @if($wishlist->isEmpty())
+    @if($candidatures->isEmpty())
         <p>Aucune offre dans votre wishlist.</p>
     @else
         <ul>
-            @foreach($wishlist as $item)
+            @foreach($candidatures as $item)
                 <li>
                     <!-- Accède à l'offre liée -->
                     @if($item->offre)
@@ -24,12 +21,6 @@
                         <div>
                             <strong>{{ $item->offre->titre }}</strong> - {{ $item->offre->entreprise->nom }}
                         </div>
-                        <a id="bouton-consulter" href="{{ route('offres.focus', ['id' => $item->offre_id]) }}">Consulter</a>
-                        <form id="form-suppr" action="{{ route('wishlist.supprimer', ['id' => $item->offre_id]) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Retirer de la Wishlist</button>
-                        </form>
                     @else
                         <p>Offre introuvable</p>
                     @endif

@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class CandidatureController extends Controller
 {
+    public function afficher_liste()
+    {
+        $utilisateur_id = Auth::id();
+        $candidatures = Candidature::with('offre')->where('utilisateur_id', $utilisateur_id)->get();
+        return view('candidatures.liste', compact('candidatures'));
+    }
+
     public function afficher($offre_id)
     {
         $offre = Offre::findOrFail($offre_id);
