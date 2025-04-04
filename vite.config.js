@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/css/style-liste.css',
                 'resources/css/style-login.css',
                 'resources/css/style-wishlist.css',
+                'resources/js/rating.js',
                 'resources/js/app.js'],
             refresh: true,
         }),
